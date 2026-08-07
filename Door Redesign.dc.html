@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html{scroll-behavior:smooth}
+html,body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto;margin:0;padding:0;background:#0B0B0C;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a,button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto}
+a{color:inherit;text-decoration:none}
+html:not([data-lang-root]) [data-l="es"]{display:none !important}
+[data-lang-root="en"] [data-l="es"]{display:none !important}
+[data-lang-root="es"] [data-l="en"]{display:none !important}
+a:hover{color:#FBC8DC}
+:root{--accent:#FBC8DC;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(140px,80px) scale(1.14)}66%{transform:translate(-90px,150px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+@keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+[data-carousel]:hover [data-carousel-track]{animation-play-state:paused}
+@media (max-width:980px){
+ [data-r="meta"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="two"]{grid-template-columns:1fr !important}
+ [data-r="phones"]{gap:28px !important}
+ [data-split]{grid-template-columns:1fr !important;gap:30px !important}
+ [data-r="phases"]{grid-template-columns:1fr !important}
+ [data-r="out"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="cjm"]{overflow-x:auto}
+}
+@media (max-width:720px){
+ [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+ [data-r="meta"]{grid-template-columns:1fr !important}
+ [data-r="out"]{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0B0B0C;position:relative;overflow:hidden">
+  <div style="position:fixed;top:-260px;left:8%;width:620px;height:620px;border-radius:9999px;background:radial-gradient(circle,rgba(68,51,204,0.34) 0%,rgba(11,11,12,0) 68%);filter:blur(20px);pointer-events:none;animation:drift 20s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;top:120px;right:-180px;width:560px;height:560px;border-radius:9999px;background:radial-gradient(circle,rgba(251,200,220,0.16) 0%,rgba(11,11,12,0) 66%);filter:blur(24px);pointer-events:none;animation:drift2 26s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;inset:0;background-image:var(--grain);opacity:0.55;mix-blend-mode:overlay;pointer-events:none;z-index:0"></div>
+
+  <div data-modal="" style="position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:48px;background:rgba(8,8,9,0.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+    <img data-modal-img="" src="" alt="" style="max-width:100%;max-height:100%;border-radius:20px;border:1px solid rgba(255,255,255,0.14);display:block;box-shadow:0 40px 100px rgba(0,0,0,0.6)">
+    <button type="button" data-modal-close="" style="position:absolute;top:26px;right:28px;width:42px;height:42px;border-radius:9999px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.08);color:#F5F5F7;font-size:16px;cursor:inherit">✕</button>
+  </div>
+
+  <div style="position:fixed;top:22px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;display:flex;align-items:center;gap:28px;padding:10px 20px;border-radius:9999px;background-color:rgba(24,24,26,0.62);background-image:var(--grain);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.5)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="Florencia Luis Portfolio.dc.html#work" aria-label="Back to all projects" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:9999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);font-size:15px;line-height:1;transition:border-color .25s ease,color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.38)">←</a>
+        <a href="Florencia Luis Portfolio.dc.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-0.01em">
+          <img src="uploads/pasted-1785967661158-0.png" alt="Florencia Luis" style="width:30px;height:30px;border-radius:9999px;display:block">
+          <span>Florencia Luis</span>
+        </a>
+      </div>
+      <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
+        <button data-langbtn="en" onClick="{{ setEn }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:#F5F5F7;color:#0B0B0C">EN</button>
+        <button data-langbtn="es" onClick="{{ setEs }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:transparent;color:#8E8E93">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:190px 40px 90px;display:flex;flex-direction:column;gap:34px">
+    <div style="display:flex;flex-direction:column;gap:16px;animation:fadeUp .6s ease both">
+      <span style="font-size:14px;color:#8E8E93">2025 — 2026</span>
+    </div>
+
+    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:20ch;animation:fadeUp .8s .1s ease both"><span data-l="en">A full redesign of DOOR, app and web, in two months.</span><span data-l="es">Un rediseño completo de DOOR, app y web, en dos meses.</span></h1>
+    <p style="margin:0;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#8E8E93;max-width:62ch;animation:fadeUp .9s .2s ease both"><span data-l="en">One of five designers on the redesign of DOOR.</span><span data-l="es">Una de cinco diseñadoras en el rediseño de DOOR.</span></p>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 80px">
+    <div data-reveal="" style="border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);margin-bottom:24px">
+      <img src="uploads/Frame 3.png" alt="DOOR — app, web and hardware after the redesign" style="width:100%;height:auto;display:block">
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 120px">
+    <div data-r="meta" data-reveal="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Role</span><span data-l="es">Rol</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Product Designer — DOOR OS surfaces, component library, packaging support</span><span data-l="es">Product Designer — superficies de DOOR OS, librería de componentes, apoyo en packaging</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Team</span><span data-l="es">Equipo</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">5 designers — product, brand and motion</span><span data-l="es">5 diseñadores — producto, marca y motion</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Worked with</span><span data-l="es">Trabajé con</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">External branding agency · Design Team · Product · Marketing · Engineering</span><span data-l="es">Agencia de branding externa · Equipo de Diseño · Producto · Marketing · Ingeniería</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Timeline</span><span data-l="es">Plazos</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">4 weeks to dev-ready · 1 month to first release</span><span data-l="es">4 semanas hasta dev-ready · 1 mes hasta el primer release</span></span>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="120" style="margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93;margin-right:6px"><span data-l="en">Surfaces</span><span data-l="es">Superficies</span></span>
+      <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC">DOOR OS</span>
+      <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">DOOR app — iOS + Android</span><span data-l="es">App DOOR — iOS + Android</span></span>
+      <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC">DOOR.com</span>
+      <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">Packaging — 10+ products</span><span data-l="es">Packaging — más de 10 productos</span></span>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start" data-split="">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The problem</span><span data-l="es">El problema</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Turning a new visual identity into a better product experience.</span><span data-l="es">Convertir una nueva identidad visual en una mejor experiencia de producto.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0"><span data-l="en">Fast growth had left the SaaS and the resident app looking like two different products: different typography, different visual rules, and components that had drifted apart over time.</span><span data-l="es">El crecimiento rápido había dejado al SaaS y a la app de residentes como dos productos distintos: tipografías diferentes, reglas visuales diferentes y componentes que se habían ido separando con el tiempo.</span></p>
+      <p style="margin:0"><span data-l="en">A branding agency came in to set the foundation. Internally there were too many competing opinions about what DOOR should look like, and an outside perspective was what got everyone behind one direction.</span><span data-l="es">Una agencia de branding entró a sentar las bases. Internamente había demasiadas opiniones enfrentadas sobre cómo debía verse DOOR, y una mirada externa fue lo que alineó a todos detrás de una dirección.</span></p>
+      <p style="margin:0;color:#F5F5F7"><span data-l="en">Most rebrands end with a brand book in a deck and a product that never changes. We used the momentum to rebuild the experience underneath the new identity.</span><span data-l="es">La mayoría de los rebrandings terminan en un brand book dentro de una presentación y un producto que nunca cambia. Usamos el impulso para reconstruir la experiencia debajo de la nueva identidad.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px">
+    <div data-reveal="" data-reveal-delay="80" style="display:flex;flex-direction:column;gap:14px">
+      <div data-compare="" style="position:relative;height:min(62vw,660px);border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;user-select:none;touch-action:pan-y">
+        <img src="uploads/pasted-1786028741711-0.png" alt="DOOR OS person profile, 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block">
+        <div data-compare-clip="" style="position:absolute;inset:0;width:52%;overflow:hidden;border-right:1px solid rgba(255,255,255,0.7)">
+          <img src="uploads/pasted-1786028681646-0.png" alt="DOOR OS person profile, 2025" style="position:absolute;top:0;left:0;height:100%;object-fit:cover;object-position:left top;display:block">
+        </div>
+        <span style="position:absolute;top:16px;left:18px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 13px;border-radius:9999px;background:rgba(11,11,12,0.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#F5F5F7;pointer-events:none"><span data-l="en">2025 — before</span><span data-l="es">2025 — antes</span></span>
+        <span style="position:absolute;top:16px;right:18px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 13px;border-radius:9999px;background:rgba(11,11,12,0.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--accent);pointer-events:none"><span data-l="en">2026 — after</span><span data-l="es">2026 — después</span></span>
+        <div data-compare-handle="" style="position:absolute;top:0;bottom:0;left:52%;width:44px;margin-left:-22px;display:flex;align-items:center;justify-content:center;cursor:ew-resize">
+          <span style="width:44px;height:44px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;display:flex;align-items:center;justify-content:center;gap:3px;font-size:13px;box-shadow:0 8px 26px rgba(0,0,0,0.45)">◄ ►</span>
+        </div>
+      </div>
+      <span style="font-size:14px;color:#8E8E93"><span data-l="en">DOOR OS — person profile, roles and assigned access. Drag to compare.</span><span data-l="es">DOOR OS — perfil de persona, roles y accesos asignados. Arrastrá para comparar.</span></span>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:44px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The approach</span><span data-l="es">El enfoque</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Two redesigns in two months, never a big bang.</span><span data-l="es">Dos rediseños en dos meses, nunca un big bang.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#8E8E93;max-width:70ch"><span data-l="en">The work was split into phases that could each ship on their own, so engineering and the business never had to wait for each other.</span><span data-l="es">El trabajo se dividió en fases que podían salir por separado, para que ingeniería y el negocio nunca tuvieran que esperarse.</span></p>
+    </div>
+    <div data-r="phases" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+      <div data-reveal="" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 1 — 4 weeks</span><span data-l="es">Fase 1 — 4 semanas</span></span>
+          <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">Shipped</span><span data-l="es">Entregado</span></span>
+        </div>
+        <h3 style="margin:0;font-size:26px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Skin</span><span data-l="es">Skin</span></h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">New tokens, type scale, iconography and component styling across DOOR OS and both mobile apps. No layout changes and no new logic, which is what kept it to four weeks and one engineering cycle.</span><span data-l="es">Nuevos tokens, escala tipográfica, iconografía y estilos de componentes en DOOR OS y en las dos apps mobile. Sin cambios de layout ni lógica nueva, que es lo que permitió hacerlo en cuatro semanas y un ciclo de ingeniería.</span></p>
+      </div>
+      <div data-reveal="" data-reveal-delay="110" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 2</span><span data-l="es">Fase 2</span></span>
+          <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">In production</span><span data-l="es">En producción</span></span>
+        </div>
+        <h3 style="margin:0;font-size:26px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Deep redesign</span><span data-l="es">Rediseño profundo</span></h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">With the tokens and component library signed off, all three products went into UX redesign at the same time, five designers working against one system. Handoff went flow by flow, in roadmap order, so engineering never got a two-hundred-screen drop.</span><span data-l="es">Con los tokens y la librería de componentes aprobados, los tres productos entraron en rediseño de UX al mismo tiempo, con cinco diseñadores trabajando sobre un mismo sistema. El hand-off fue flujo por flujo, en el orden del roadmap, para que ingeniería nunca recibiera doscientas pantallas de golpe.</span></p>
+      </div>
+      <div data-reveal="" data-reveal-delay="220" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 3</span><span data-l="es">Fase 3</span></span>
+          <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">Ongoing</span><span data-l="es">En curso</span></span>
+        </div>
+        <h3 style="margin:0;font-size:26px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Intelligence</span><span data-l="es">Inteligencia</span></h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">The visual layer is settled, but the sections still behave like separate products inside one app. The current work is getting the product to surface what needs attention, so a manager is not checking eleven places to find it.</span><span data-l="es">La capa visual ya está resuelta, pero las secciones todavía se comportan como productos separados dentro de una misma app. El trabajo actual es lograr que el producto muestre lo que necesita atención, para que un manager no tenga que revisar once lugares para encontrarlo.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:28px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Process</span><span data-l="es">Proceso</span></span>
+      <h2 style="margin:0;font-size:clamp(26px,3.6vw,40px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Micro journey map — resident unlocking a door</span><span data-l="es">Micro journey map — un residente abriendo una puerta</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#8E8E93;max-width:70ch"><span data-l="en">Each flow was mapped before it was redesigned: what the person does at every step, what fails there, and what we could fix. Every leg of the resident and manager journey went through this.</span><span data-l="es">Cada flujo se mapeó antes de rediseñarlo: qué hace la persona en cada paso, qué falla ahí y qué podíamos resolver. Cada tramo del journey de residentes y managers pasó por esto.</span></p>
+    </div>
+    <div data-r="cjm" data-reveal="" data-reveal-delay="100" style="border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden;background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)">
+      <div style="display:grid;grid-template-columns:150px repeat(4,minmax(190px,1fr));gap:1px;background:rgba(255,255,255,0.08);min-width:820px">
+        <div style="background:rgba(255,255,255,0.04);padding:18px 20px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Stage</span><span data-l="es">Etapa</span></div>
+        <div style="background:rgba(255,255,255,0.04);padding:18px 20px;font-size:15px;font-weight:500"><span data-l="en">Trigger</span><span data-l="es">Disparador</span></div>
+        <div style="background:rgba(255,255,255,0.04);padding:18px 20px;font-size:15px;font-weight:500"><span data-l="en">Approach</span><span data-l="es">Acercamiento</span></div>
+        <div style="background:rgba(255,255,255,0.04);padding:18px 20px;font-size:15px;font-weight:500"><span data-l="en">Unlock</span><span data-l="es">Apertura</span></div>
+        <div style="background:rgba(255,255,255,0.04);padding:18px 20px;font-size:15px;font-weight:500"><span data-l="en">Feedback</span><span data-l="es">Feedback</span></div>
+
+        <div style="background:#0F0F12;padding:18px 20px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Actions</span><span data-l="es">Acciones</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">At the door, wants in — proximity failed or they prefer control</span><span data-l="es">En la puerta, quiere entrar — la proximidad falló o prefiere tener el control</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Opens the app and hunts for the unlock button</span><span data-l="es">Abre la app y busca el botón de apertura</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Taps unlock while in range of the lock</span><span data-l="es">Toca abrir estando dentro del rango de la cerradura</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Lock opens; confirmation appears on screen</span><span data-l="es">La cerradura se abre; aparece la confirmación en pantalla</span></div>
+
+        <div style="background:#0F0F12;padding:18px 20px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Pain points</span><span data-l="es">Pain points</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#8E8E93"><span data-l="en">Opening the app to get in feels like too many steps</span><span data-l="es">Abrir la app para entrar se siente como demasiados pasos</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#8E8E93"><span data-l="en">Too many taps — not obvious where unlock lives</span><span data-l="es">Demasiados taps — no queda claro dónde está la apertura</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#8E8E93"><span data-l="en">No way to tell if they are close enough for it to work</span><span data-l="es">No hay forma de saber si está lo suficientemente cerca para que funcione</span></div>
+        <div style="background:#0F0F12;padding:18px 20px;font-size:15px;line-height:1.55;color:#8E8E93"><span data-l="en">Unclear whether the unlock went through or needs a retry</span><span data-l="es">No queda claro si la apertura se completó o hay que reintentar</span></div>
+
+        <div style="background:rgba(251,200,220,0.06);padding:18px 20px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Opportunities</span><span data-l="es">Oportunidades</span></div>
+        <div style="background:rgba(251,200,220,0.06);padding:18px 20px;font-size:15px;line-height:1.55"><span data-l="en">Unlock reachable from the home screen in one tap</span><span data-l="es">Apertura al alcance desde la home en un solo tap</span></div>
+        <div style="background:rgba(251,200,220,0.06);padding:18px 20px;font-size:15px;line-height:1.55"><span data-l="en">The lock is the first thing you see when the app opens</span><span data-l="es">La cerradura es lo primero que se ve al abrir la app</span></div>
+        <div style="background:rgba(251,200,220,0.06);padding:18px 20px;font-size:15px;line-height:1.55"><span data-l="en">Proximity indicator so range is never a guess</span><span data-l="es">Indicador de proximidad para que el rango no sea una adivinanza</span></div>
+        <div style="background:rgba(251,200,220,0.06);padding:18px 20px;font-size:15px;line-height:1.55">A distinct "door opened" state, not a loading spinner</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:36px">
+    <h2 data-reveal="" style="margin:0;font-size:clamp(26px,3.6vw,40px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Designed screens</span><span data-l="es">Pantallas diseñadas</span></h2>
+    <div data-r="phones" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;align-items:end;justify-items:center">
+      <div data-reveal="" style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <span style="align-self:center;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.14);background-color:rgba(255,255,255,0.05);background-image:var(--grain);color:#8E8E93"><span data-l="en">2025 — before</span><span data-l="es">2025 — antes</span></span>
+        <img src="uploads/pasted-1786034658768-0.png" alt="DOOR app — profile and settings, before" style="height:min(74vw,620px);width:auto;max-width:100%;display:block;border-radius:14px">
+      </div>
+      <div data-reveal="" data-reveal-delay="110" style="display:flex;flex-direction:column;gap:18px;align-items:center">
+        <span style="align-self:center;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.14);background-color:rgba(255,255,255,0.05);background-image:var(--grain);color:#FBC8DC"><span data-l="en">2026 — after</span><span data-l="es">2026 — después</span></span>
+        <img src="uploads/pasted-1786034963684-0.png" alt="DOOR app — profile and settings, after" style="height:min(74vw,620px);width:auto;max-width:100%;display:block;border-radius:14px">
+      </div>
+    </div>
+    <div data-carousel="" style="position:relative;overflow:hidden;margin:0 -40px;padding:6px 0;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)">
+      <div data-carousel-track="" style="display:flex;gap:24px;width:max-content;animation:marquee 64s linear infinite">
+        <button type="button" data-shot="uploads/pasted-1786035210504-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035210504-0.png" alt="App — home, access and devices" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035381665-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035381665-0.png" alt="DOOR OS — unit detail" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035248214-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035248214-0.png" alt="App — my devices" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035400417-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035400417-0.png" alt="DOOR OS — property settings" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035518966-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035518966-0.png" alt="App — thermostat control" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035447540-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035447540-0.png" alt="App — redesigned screens" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035281927-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035281927-0.png" alt="App — connecting to device" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035530705-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035530705-0.png" alt="App — schedule" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035210504-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035210504-0.png" alt="App — home, access and devices" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035381665-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035381665-0.png" alt="DOOR OS — unit detail" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035248214-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035248214-0.png" alt="App — my devices" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035400417-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035400417-0.png" alt="DOOR OS — property settings" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035518966-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035518966-0.png" alt="App — thermostat control" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035447540-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035447540-0.png" alt="App — redesigned screens" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035281927-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035281927-0.png" alt="App — connecting to device" style="height:440px;width:auto;display:block">
+        </button>
+        <button type="button" data-shot="uploads/pasted-1786035530705-0.png" style="flex:0 0 auto;height:440px;padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:22px;overflow:hidden;background:#111114;cursor:inherit;display:block;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(255,255,255,0.28)">
+          <img src="uploads/pasted-1786035530705-0.png" alt="App — schedule" style="height:440px;width:auto;display:block">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start" data-split="">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">My contribution</span><span data-l="es">Mi aporte</span></span>
+      <h2 style="margin:0;font-size:clamp(26px,3.6vw,40px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">What I owned</span><span data-l="es">De qué me encargué</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column">
+      <div style="padding:22px 0;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;gap:7px">
+        <span style="font-size:19px;font-weight:500;letter-spacing:-0.02em"><span data-l="en">Component library and tokens</span><span data-l="es">Librería de componentes y tokens</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Turned the agency deliverables into a token set engineering could build from, then maintained and extended the shared components for web and app.</span><span data-l="es">Convertí los entregables de la agencia en un set de tokens con el que ingeniería podía construir, y después mantuve y extendí los componentes compartidos para web y app.</span></span>
+      </div>
+      <div style="padding:22px 0;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;gap:7px">
+        <span style="font-size:19px;font-weight:500;letter-spacing:-0.02em"><span data-l="en">DOOR OS flows</span><span data-l="es">Flujos de DOOR OS</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Keys, access assignment and person profiles: dense tables, permissions and device state that a manager can read without training.</span><span data-l="es">Llaves, asignación de accesos y perfiles de personas: tablas densas, permisos y estado de los dispositivos que un manager pueda leer sin entrenamiento.</span></span>
+      </div>
+      <div style="padding:22px 0;border-top:1px solid rgba(255,255,255,0.10);border-bottom:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;gap:7px">
+        <span style="font-size:19px;font-weight:500;letter-spacing:-0.02em"><span data-l="en">Journey mapping</span><span data-l="es">Journey mapping</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Built the journey maps for each flow together with product, and used them to make the case for the structural changes that shipped in phase 2.</span><span data-l="es">Armé los journey maps de cada flujo junto con producto, y los usé para fundamentar los cambios estructurales que salieron en la fase 2.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:30px">
+    <h2 data-reveal="" style="margin:0;font-size:clamp(26px,3.6vw,40px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Outcome</span><span data-l="es">Resultado</span></h2>
+    <div data-r="out" data-reveal="" data-reveal-delay="90" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">4 weeks</span><span data-l="es">4 semanas</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">DOOR OS and both apps redesigned and handed off dev-ready</span><span data-l="es">DOOR OS y las dos apps rediseñadas y entregadas dev-ready</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">1 month</span><span data-l="es">1 mes</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">From dev-ready to the first release in production</span><span data-l="es">De dev-ready al primer release en producción</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">1 system</span><span data-l="es">1 sistema</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">Product, brand, marketing and packaging on shared tokens</span><span data-l="es">Producto, marca, marketing y packaging sobre tokens compartidos</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">5 designers</span><span data-l="es">5 diseñadores</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">Two products, four platforms, no headcount added</span><span data-l="es">Dos productos, cuatro plataformas, sin sumar headcount</span></span>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="160" style="border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:34px;display:flex;flex-direction:column;gap:12px;max-width:80ch">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">What I'd change</span><span data-l="es">Qué cambiaría</span></span>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#C7C7CC"><span data-l="en">Phasing kept engineering moving, but phase 1 shipped screens we already knew were structurally wrong. For about six weeks the product looked new and behaved old, and some of that feedback was fair. Next time I would push to restructure one main flow alongside the skin, so the direction is visible in production from the start.</span><span data-l="es">Fasear mantuvo a ingeniería en movimiento, pero la fase 1 sacó pantallas que ya sabíamos que estaban mal estructuradas. Durante unas seis semanas el producto se veía nuevo y se comportaba viejo, y parte de ese feedback fue justo. La próxima vez impulsaría reestructurar un flujo principal junto con el skin, para que la dirección se vea en producción desde el arranque.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 90px;display:flex;flex-direction:column;gap:26px">
+    <div data-reveal="" style="border-top:1px solid rgba(255,255,255,0.10);padding-top:44px;display:flex;flex-direction:column;gap:22px">
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Shall we work together?</span><span data-l="es">¿Trabajamos juntos?</span></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#0B0B0C;transform:translateY(-2px)">florbluis@gmail.com</a>
+        <a href="https://behance.net/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">Behance</a>
+        <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">LinkedIn</a>
+      </div>
+      <span style="font-size:14px;color:#8E8E93">+54 9 11 6015-7008 · Buenos Aires, Argentina</span>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.wireCompare();
+    this.wireCarousel();
+    this.applyLang(localStorage.getItem('flor-lang') || 'en');
+    document.documentElement.style.background = '#0B0B0C';
+    document.body.style.background = '#0B0B0C';
+    const items = document.querySelectorAll('[data-reveal]');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.getAttribute('data-reveal-delay') || '0', 10);
+        e.target.style.transitionDelay = d + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    items.forEach(el => io.observe(el));
+    this._sweep = () => {
+      items.forEach(el => {
+        if (el.style.opacity === '1') return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    };
+    window.addEventListener('scroll', this._sweep, { passive: true });
+    window.addEventListener('resize', this._sweep, { passive: true });
+  }
+
+  wireCarousel() {
+    const modal = document.querySelector('[data-modal]');
+    const img = modal && modal.querySelector('[data-modal-img]');
+    if (!modal) return;
+    const open = src => { img.src = src; modal.style.display = 'flex'; };
+    const close = () => { modal.style.display = 'none'; img.src = ''; };
+    document.querySelectorAll('[data-shot]').forEach(btn => {
+      btn.addEventListener('click', () => open(btn.getAttribute('data-shot')));
+    });
+    modal.addEventListener('click', e => { if (e.target !== img) close(); });
+    this._esc = e => { if (e.key === 'Escape') close(); };
+    window.addEventListener('keydown', this._esc);
+  }
+
+  wireCompare() {
+    const box = document.querySelector('[data-compare]');
+    if (!box) return;
+    const clip = box.querySelector('[data-compare-clip]');
+    const handle = box.querySelector('[data-compare-handle]');
+    const beforeImg = clip.querySelector('img');
+    const fit = () => { beforeImg.style.width = box.getBoundingClientRect().width + 'px'; };
+    const set = pct => {
+      const p = Math.max(2, Math.min(98, pct));
+      clip.style.width = p + '%';
+      handle.style.left = p + '%';
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    const from = e => {
+      const r = box.getBoundingClientRect();
+      const cx = e.touches ? e.touches[0].clientX : e.clientX;
+      set(((cx - r.left) / r.width) * 100);
+    };
+    let dragging = false;
+    const down = e => { dragging = true; from(e); };
+    const move = e => { if (dragging) { from(e); if (e.cancelable) e.preventDefault(); } };
+    const up = () => { dragging = false; };
+    box.addEventListener('mousedown', down);
+    box.addEventListener('touchstart', down, { passive: true });
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, { passive: false });
+    window.addEventListener('mouseup', up);
+    window.addEventListener('touchend', up);
+    this._cmpOff = () => {
+      window.removeEventListener('resize', fit);
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('touchmove', move);
+      window.removeEventListener('mouseup', up);
+      window.removeEventListener('touchend', up);
+    };
+  }
+
+  renderVals() {
+    return {
+      setEn: () => this.applyLang('en'),
+      setEs: () => this.applyLang('es')
+    };
+  }
+
+  applyLang(lang) {
+    document.documentElement.setAttribute('data-lang-root', lang);
+    try { localStorage.setItem('flor-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-langbtn]').forEach(b => {
+      const on = b.getAttribute('data-langbtn') === lang;
+      b.style.background = on ? '#F5F5F7' : 'transparent';
+      b.style.color = on ? '#0B0B0C' : '#8E8E93';
+    });
+  }
+
+  componentWillUnmount() {
+    if (this._esc) window.removeEventListener('keydown', this._esc);
+    if (this._cmpOff) this._cmpOff();
+    window.removeEventListener('scroll', this._sweep);
+    window.removeEventListener('resize', this._sweep);
+  }
+}
+</script>
+</body>
+</html>

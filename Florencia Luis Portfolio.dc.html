@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html{scroll-behavior:smooth}
+html,body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto;margin:0;padding:0;background:#0B0B0C;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a,button,[data-langbtn]{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--accent,#FCDB3C)}
+:root{--accent:#FCDB3C;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E")}
+html:not([data-lang-root]) [data-l="es"]{display:none !important}
+[data-lang-root="en"] [data-l="es"]{display:none !important}
+[data-lang-root="es"] [data-l="en"]{display:none !important}
+@keyframes riseIn{from{transform:translateY(108%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes glowPulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(140px,80px) scale(1.14)}66%{transform:translate(-90px,150px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+@media (max-width:1080px){
+ [data-r="work-grid"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="exp-row"]{grid-template-columns:150px 1fr !important;gap:26px !important}
+ [data-r="exp-tags"]{grid-column:2 / -1 !important;justify-content:flex-start !important}
+ [data-r="stats-wrap"]{width:100% !important;height:auto !important;max-width:1180px !important}
+}
+@media (max-width:860px){
+ [data-r="nav-links"]{display:none !important}
+ [data-r="hero"]{padding:132px 22px 70px !important;gap:56px !important}
+ [data-r="about-grid"]{grid-template-columns:1fr !important;gap:30px !important}
+ [data-r="about-img"]{height:400px !important;border-radius:0 24px 24px 0 !important}
+ [data-r="about-text"]{padding:0 22px !important}
+ [data-r="stats-wrap"]{padding:0 22px !important}
+ [data-r="stats"]{grid-template-columns:1fr !important}
+ [data-r="work-grid"]{grid-template-columns:1fr !important}
+ [data-r="exp-row"]{grid-template-columns:1fr !important;gap:12px !important}
+ [data-r="exp-tags"]{grid-column:auto !important}
+ [data-r="contact-card"]{padding:60px 24px !important;border-radius:26px !important}
+ #work,#experience,#contact{padding-left:22px !important;padding-right:22px !important}
+}
+@keyframes diagWipe{from{clip-path:polygon(-40% -46px, -30% -46px, -74% calc(100% + 56px), -84% calc(100% + 56px))}to{clip-path:polygon(-40% -46px, 168% -46px, 124% calc(100% + 56px), -84% calc(100% + 56px))}}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0B0B0C"/><text x="50" y="50" fill="#F5F3EF" font-family="Georgia,serif" font-size="30" text-anchor="middle" dominant-baseline="central">FL</text></svg></template>
+
+<div style="min-height:100vh;background:#0B0B0C;position:relative;overflow:hidden">
+
+  <div style="position:fixed;top:-260px;left:8%;width:620px;height:620px;border-radius:9999px;background:radial-gradient(circle,rgba(68,51,204,0.34) 0%,rgba(11,11,12,0) 68%);filter:blur(20px);pointer-events:none;animation:drift 20s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;top:120px;right:-180px;width:560px;height:560px;border-radius:9999px;background:radial-gradient(circle,rgba(252,219,60,0.16) 0%,rgba(11,11,12,0) 66%);filter:blur(24px);pointer-events:none;animation:drift2 26s ease-in-out infinite;z-index:0"></div>
+
+  <div style="position:fixed;inset:0;background-image:var(--grain);opacity:0.55;mix-blend-mode:overlay;pointer-events:none;z-index:0"></div>
+
+  <div style="position:fixed;top:22px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;display:flex;align-items:center;gap:34px;padding:10px 12px 10px 22px;border-radius:9999px;background-color:rgba(24,24,26,0.62);background-image:var(--grain);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.5)">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-0.01em">
+        <img src="uploads/pasted-1785967661158-0.png" alt="Florencia Luis" style="width:30px;height:30px;border-radius:9999px;display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.1) rotate(-6deg)">
+        <span>Florencia Luis</span>
+      </a>
+      <div data-r="nav-links" style="display:flex;gap:26px;font-size:14px;color:#8E8E93">
+        <a href="#about" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:60px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
+        <a href="#work" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:56px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">Work</span><span data-l="es">Trabajo</span></a>
+        <a href="#experience" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:84px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">Experience</span><span data-l="es">Experiencia</span></a>
+        <a href="#contact" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:66px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">Contact</span><span data-l="es">Contacto</span></a>
+      </div>
+      <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
+        <button data-langbtn="en" onClick="{{ setEn }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;cursor:pointer">EN</button>
+        <button data-langbtn="es" onClick="{{ setEs }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:transparent;color:#8E8E93;cursor:pointer">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" data-r="hero" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:210px 40px 120px;display:flex;flex-direction:column;gap:80px">
+    <div style="display:flex;flex-direction:column;gap:30px;position:relative">
+
+      <div style="display:flex;align-items:center;gap:14px;animation:fadeUp .6s ease both">
+        <span style="display:flex;align-items:center;gap:9px;font-size:12px;font-weight:500;letter-spacing:0.08em;padding:7px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.14);background-color:rgba(255,255,255,0.05);background-image:var(--grain);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7">
+          <span style="width:7px;height:7px;border-radius:9999px;background:#FBC8DC;display:block"></span>2026
+        </span>
+        <span style="font-size:14px;font-weight:400;color:#8E8E93"><span data-l="en">Senior Product Designer · Buenos Aires, Argentina</span><span data-l="es">Diseñadora de Producto Senior · Buenos Aires, Argentina</span></span>
+      </div>
+
+      
+
+      <div data-select-frame="" style="position:relative;align-self:flex-start;width:min(880px,100%);max-width:100%;container-type:inline-size;animation:diagWipe 1.5s .25s cubic-bezier(.55,.05,.25,1) both">
+        <h1 style="margin:0;font-weight:600;font-size:clamp(34px,13.4cqw,132px);line-height:1.06;letter-spacing:-0.05em">
+          <span data-l="en">
+            <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block">Design that</span></span>
+            <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block">makes things</span></span>
+            <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block;color:var(--accent,#FCDB3C)">easier.</span></span>
+          </span>
+          <span data-l="es">
+            <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block">Diseño que</span></span>
+            <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block">hace las cosas</span></span>
+            <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block;color:var(--accent,#FCDB3C)">más fáciles.</span></span>
+          </span>
+        </h1>
+      </div><p style="margin:0;font-size:clamp(17px,2.2vw,23px);line-height:1.45;letter-spacing:-0.012em;color:#8E8E93;max-width:56ch;animation:fadeUp .9s .55s ease both">
+        <span data-l="en">I love creating solutions that make the user experience easier and more accessible. I'm motivated to contribute digitally through design.</span>
+        <span data-l="es">Me encanta crear soluciones que hagan la experiencia del usuario más fácil y accesible. Me motiva contribuir digitalmente a través del diseño.</span>
+      </p>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .9s .68s ease both">
+        <a href="#work" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease" style-hover="color:#0B0B0C;transform:translateY(-2px);box-shadow:0 12px 34px rgba(255,255,255,0.18)" style-active="transform:translateY(0) scale(.97)"><span data-l="en">See the work</span><span data-l="es">Ver el trabajo</span></a>
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease,background .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);background-color:rgba(255,255,255,0.10);transform:translateY(-2px)" style-active="transform:translateY(0) scale(.97)"><span data-l="en">Get in touch</span><span data-l="es">Contactame</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="about" style="position:relative;z-index:1;padding:40px 0 130px;display:flex;flex-direction:column;gap:64px">
+    <div data-r="about-grid" style="display:grid;grid-template-columns:minmax(0,42%) minmax(0,1fr);gap:72px;align-items:center">
+      <div data-reveal="" data-r="about-img" style="height:660px;border-radius:0 30px 30px 0;overflow:hidden;border:1px solid rgba(255,255,255,0.10);border-left:0">
+        <img src="uploads/DSC00561.JPG" alt="Florencia Luis" style="width:100%;height:100%;object-fit:cover;object-position:32% 50%;display:block;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)" style-hover="transform:scale(1.04)">
+      </div>
+      <div data-r="about-text" style="display:flex;flex-direction:column;gap:30px;max-width:620px;padding-right:40px">
+        <p data-reveal="" style="margin:0;font-size:clamp(24px,3.6vw,36px);line-height:1.26;letter-spacing:-0.03em;font-weight:400">
+          <span data-l="en">I'm Flor, a UX/UI designer based in Buenos Aires, Argentina.</span>
+          <span data-l="es">Soy Flor, diseñadora UX/UI radicada en Buenos Aires, Argentina.</span>
+        </p>
+        <p data-reveal="" data-reveal-delay="80" style="margin:0;font-size:19px;line-height:1.65;color:#8E8E93;max-width:56ch">
+          <span data-l="en">With 6 years of experience in the design world — both in the Latin American and U.S. markets — every role and project I've worked on has brought me value and knowledge, shaping the designer I am today. Always waiting for new challenges.</span>
+          <span data-l="es">Con 6 años de experiencia en el mundo del diseño — tanto en el mercado latinoamericano como en el de EE. UU. — cada rol y proyecto me trajo valor y conocimiento, formando a la diseñadora que soy hoy. Siempre esperando nuevos desafíos.</span>
+        </p>
+      </div>
+    </div>
+    <div style="margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 38px; height: 207px; width: 1098px" data-r="stats-wrap">
+      <div data-reveal="" data-reveal-delay="160" data-r="stats" style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.10); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.10); width: 100%; height: 135px">
+        <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:6px">
+          <span data-count="6" style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em">6</span>
+          <span style="font-size:14px;color:#8E8E93"><span data-l="en">years designing</span><span data-l="es">años diseñando</span></span>
+        </div>
+        <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:6px">
+          <span data-count="2" style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em">2</span>
+          <span style="font-size:14px;color:#8E8E93"><span data-l="en">design systems built</span><span data-l="es">design systems creados</span></span>
+        </div>
+        <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:6px">
+          <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em">App + Web</span>
+          <span style="font-size:14px;color:#8E8E93"><span data-l="en">iOS, Android and web</span><span data-l="es">iOS, Android y web</span></span>
+        </div>
+      </div>
+      <div data-reveal="" data-reveal-delay="220" style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">LLMs</span><span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UI Design</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UX Research</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Design systems</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Prototyping</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">HTML / CSS / Sass</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Jira · Miro</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="work" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 140px;display:flex;flex-direction:column;gap:56px">
+    <div data-reveal="" style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <h2 style="margin:0;font-size:clamp(32px,5.6vw,54px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">Selected work</span><span data-l="es">Trabajo seleccionado</span></h2>
+      <span style="font-size:14px;color:#8E8E93"><span data-l="es">Cuatro proyectos</span></span>
+    </div>
+
+    <div data-r="work-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:stretch">
+      <a href="Door Redesign.dc.html" data-card="" data-reveal="" data-reveal-delay="0" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;color:#F5F5F7;transition:border-color .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,background .3s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.26);background-color:rgba(255,255,255,0.06);transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,0.55)">
+        <div style="height:360px;background:#111114;overflow:hidden">
+          <img src="uploads/Frame 3.png" alt="DOOR — app, web and hardware after the redesign" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+        </div>
+        <div style="padding:34px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent,#FCDB3C)">Door</span>
+            <span style="font-size:13px;color:#8E8E93">2025 — <span data-l="en">present</span><span data-l="es">presente</span></span>
+          </div>
+          <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">DOOR Redesign</span><span data-l="es">Rediseño de DOOR</span></h3>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">A full redesign of DOOR OS, both mobile apps and DOOR.com, with a team of five designers. Dev-ready in four weeks and in production a month later.</span><span data-l="es">Rediseño integral de DOOR OS, las dos apps y DOOR.com, con un equipo de cinco diseñadores. Listo para desarrollo en cuatro semanas y en producción un mes después.</span></p>
+          <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Case study in progress</span><span data-l="es">Caso de estudio en curso</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
+        </div>
+      </a>
+      <a href="Latch.dc.html" data-card="" data-reveal="" data-reveal-delay="120" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;color:#F5F5F7;transition:border-color .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,background .3s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.26);background-color:rgba(255,255,255,0.06);transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,0.55)">
+        <div style="height:360px;background:#111114;overflow:hidden">
+          <img src="uploads/Frame 4.png" alt="DOOR device screens: thermostat, switch and dimmer" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+        </div>
+        <div style="padding:34px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent,#FCDB3C)">Door</span>
+            <span style="font-size:13px;color:#8E8E93">2025</span>
+          </div>
+          <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">DOOR devices, new UX</span><span data-l="es">Dispositivos DOOR, nueva UX</span></h3>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Quick access, device details and the installation flow, rebuilt as one template each — plus the Figma file they all live in.</span><span data-l="es">Acceso rápido, detalle de dispositivo y flujo de instalación, rehechos como una plantilla cada uno — más el archivo de Figma donde viven.</span></p>
+          <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
+        </div>
+      </a>
+      <a href="Biometria.dc.html" data-card="" data-reveal="" data-reveal-delay="240" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;color:#F5F5F7;transition:border-color .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,background .3s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.26);background-color:rgba(255,255,255,0.06);transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,0.55)">
+        <div style="height:360px;background:#111114;overflow:hidden">
+          <img src="uploads/bio-thumb.png" alt="Biometric onboarding screens" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <div style="padding:34px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent,#FCDB3C)">Biometría</span>
+            <span style="font-size:13px;color:#8E8E93">2023 · Uruguay</span>
+          </div>
+          <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">Biometrics in a bank's acquisition flow</span><span data-l="es">Biometría en el flujo de alta de un banco</span></h3>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">A project for a banking entity in Uruguay, whose name we're keeping confidential. With the help of AI, it aimed to detect document forgery and reduce fraud cases.</span><span data-l="es">Un proyecto para una entidad bancaria de Uruguay, cuyo nombre mantenemos confidencial. Con ayuda de IA, buscaba detectar falsificación de documentos y reducir casos de fraude.</span></p>
+          <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
+        </div>
+      </a>
+      <a href="Indar.dc.html" data-card="" data-reveal="" data-reveal-delay="360" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;color:#F5F5F7;transition:border-color .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,background .3s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.26);background-color:rgba(255,255,255,0.06);transform:translateY(-6px);box-shadow:0 26px 60px rgba(0,0,0,0.55)">
+        <div style="height:360px;background:#111114;overflow:hidden">
+          <img src="assets/indar/new-hero.png" alt="Indar Equipamientos online store" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+        </div>
+        <div style="padding:34px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent,#FCDB3C)">Indar Equipamientos</span>
+            <span style="font-size:13px;color:#8E8E93">2023 — 2024</span>
+          </div>
+          <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">A new ecommerce, redesigned and built</span><span data-l="es">Un nuevo ecommerce, rediseñado e implementado</span></h3>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Redesign and implementation of the Indar Equipamientos online store: catalogue structure, product pages and checkout, plus the front-end work to put it live.</span><span data-l="es">Rediseño e implementación de la tienda online de Indar Equipamientos: estructura del catálogo, fichas de producto y checkout, más el trabajo de front-end para publicarla.</span></p>
+          <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div id="experience" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 140px;display:flex;flex-direction:column;gap:8px">
+    <h2 data-reveal="" style="margin:0 0 30px;font-size:clamp(32px,5.6vw,54px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">Experience</span><span data-l="es">Experiencia</span></h2>
+
+    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
+      <span style="font-size:14px;color:#8E8E93">2024 — <span data-l="en">present</span><span data-l="es">presente</span></span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Sr. Product Designer · Latch/DOOR</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Design of user-centric flows for both app and web, focusing on functionality. Decision-making based on UX principles. Maintenance and development of the design system. AI tools creation and coding for app and web.</span><span data-l="es">Diseño de flujos centrados en el usuario para app y web, con foco en la funcionalidad. Decisiones basadas en principios de UX. Mantenimiento y desarrollo del design system. Creación y codeo de herramientas con IA para app y web.</span></p>
+      </div>
+      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Claude AI</span><span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Design system</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Agile / Scrum</span>
+      </div>
+    </div>
+
+    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
+      <span style="font-size:14px;color:#8E8E93">2022 — 2024</span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Ssr. UX/UI Designer · Certant S.A</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Project management, time tracking and team training. Designed and prototyped web proposals focused on functionality and UX. Performed front-end development using different programming languages as required.</span><span data-l="es">Gestión de proyectos, seguimiento de tiempos y formación del equipo. Diseño y prototipado de propuestas web centradas en la funcionalidad y la UX. Desarrollo front-end con distintos lenguajes según lo requerido.</span></p>
+      </div>
+      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UX research</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Front-end</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Responsive</span>
+      </div>
+    </div>
+
+    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
+      <span style="font-size:14px;color:#8E8E93">2024 — <span data-l="en">present</span><span data-l="es">presente</span></span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Brand Consultant&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Freelance brand consultant since 2024 — art direction, eCommerce, web design and content.</span><span data-l="es">Consultora de marca freelance desde 2024 — dirección de arte, eCommerce, diseño web y contenido.</span></p>
+      </div>
+      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Art direction</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Graphic Design</span><span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">eCommerce</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Web design</span>
+      </div>
+    </div><div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
+      <span style="font-size:14px;color:#8E8E93">2019 — <span data-l="en">2024</span><span data-l="es">2024</span></span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em"><span style="letter-spacing: -0.72px;">Team Lead&nbsp;</span><span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">&nbsp;Design lead from 2023 to 2024, and Ssr. Multimedia Designer from 2019 to 2023 — art direction, eCommerce, web design and content.</span><span data-l="es">Líder de equipo de diseño entre 2023 y 2024, y Ssr. Multimedia Designer entre 2019 y 2023.</span></p>
+      </div>
+      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Art direction</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Graphic Design</span><span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">eCommerce</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Web design</span>
+      </div>
+    </div>
+
+    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);border-bottom:1px solid rgba(255,255,255,0.10);align-items:baseline">
+      <span style="font-size:14px;color:#8E8E93"><span data-l="en">Education</span><span data-l="es">Educación</span></span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">UX Design · Google Coursera</span><span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">UX/UI Design · Coderhouse</span><span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Multimedia Design<span style="letter-spacing: -0.72px;"> · </span>Escuela Da Vinci</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"></p>
+      </div>
+      <div></div>
+    </div>
+  </div>
+
+  <div id="contact" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 100px">
+    <div data-reveal="" data-r="contact-card" style="border-radius: 34px; color: #fff; padding: 100px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; position: relative; overflow: hidden; background-color: #2C246D">
+      <div style="position: absolute; top: -193px; left: -151px; width: 460px; height: 460px; border-radius: 9999px; background: radial-gradient(circle,rgba(251,200,220,0.45) 0%,rgba(68,51,204,0) 68%)"></div>
+      <div style="position: absolute; width: 480px; height: 480px; border-radius: 9999px; background: radial-gradient(circle,rgba(252,219,60,0.34) 0%,rgba(68,51,204,0) 68%); left: 779px; top: 122px"></div>
+      
+      <img src="uploads/pasted-1785967682458-0.png" alt="Florencia Luis" style="position: static; width: 132px; height: 132px; object-fit: cover; margin-bottom: 6px"><span style="position:relative;font-size:17px;color:rgba(255,255,255,0.85)"><span data-l="en">Thanks for your interest in my profile</span><span data-l="es">Gracias por tu interés en mi perfil</span></span>
+      <h2 style="position:relative;margin:0;font-size:clamp(32px,6.4vw,72px);font-weight:600;letter-spacing:-0.05em;line-height:1"><span data-l="en">Shall we work together?&nbsp;<span style="letter-spacing: -3.6px;">🚀</span></span><span data-l="es">¿Trabajamos juntos? 🚀</span></h2>
+      <div style="position:relative;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px">
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#fff;color:#3327A6;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#3327A6;background:rgba(255,255,255,0.9);transform:translateY(-2px)">florbluis@gmail.com</a>
+        <a data-l="en" href="uploads/florencia-luis-resume.pdf" download="Florencia Luis - Resume.pdf" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#fff;color:#3327A6;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#3327A6;background:rgba(255,255,255,0.9);transform:translateY(-2px)">Download resume</a>
+        <a data-l="es" href="uploads/florencia-luis-cv.pdf" download="Florencia Luis - CV.pdf" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#fff;color:#3327A6;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#3327A6;background:rgba(255,255,255,0.9);transform:translateY(-2px)">Descargar CV</a>
+        <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.14);background-image:var(--grain);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.32);color:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s ease" style-hover="color:#fff;background-color:rgba(255,255,255,0.26);transform:translateY(-2px)">LinkedIn</a><a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.14);background-image:var(--grain);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.32);color:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s ease" style-hover="color:#fff;background-color:rgba(255,255,255,0.26);transform:translateY(-2px)">+54 9 11 6015-7008</a>
+      </div>
+      
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 56px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8E8E93">
+    <span>Florencia Luis · 2026</span>
+    <span><span data-l="es">Abierta a roles senior de diseño de producto</span></span>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FBC8DC&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FCDB3C&quot;,&quot;#FBC8DC&quot;,&quot;#4433CC&quot;,&quot;#F5F5F7&quot;],&quot;section&quot;:&quot;Style&quot;},&quot;selectionUi&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Style&quot;},&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;en&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Content&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;full&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;subtle&quot;,&quot;off&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const jump = () => {
+        const el = document.getElementById(id);
+        if (!el) return false;
+        const prev = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 110);
+        document.documentElement.style.scrollBehavior = prev;
+        return true;
+      };
+      let tries = 0;
+      const t = setInterval(() => { if (jump() || ++tries > 40) clearInterval(t); }, 50);
+    }
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#FCDB3C');
+    document.documentElement.style.background = '#0B0B0C';
+    document.body.style.background = '#0B0B0C';
+    let stored = null;
+    try { stored = localStorage.getItem('flor-lang'); } catch (e) {}
+    this.applyLang(stored || this.props.defaultLang || 'en');
+    this.wireReveals();
+    this.wireMicro();
+    this.wireSelectFrame();
+    this.wireCardPill();
+  }
+
+  componentDidUpdate() {
+    document.documentElement.style.setProperty('--accent', this.props.accent ?? '#FCDB3C');
+    this.wireSelectFrame();
+  }
+
+  componentWillUnmount() {
+    if (this._pill) this._pill.remove();
+    if (this._sweep) {
+      window.removeEventListener('scroll', this._sweep);
+      window.removeEventListener('resize', this._sweep);
+    }
+  }
+
+  scramble(lang) {
+    const other = lang === 'es' ? 'en' : 'es';
+    const pick = sel => {
+      const out = [];
+      document.querySelectorAll('[data-l="' + sel + '"]').forEach(host => {
+        const r = host.getBoundingClientRect();
+        if (r.bottom < -60 || r.top > window.innerHeight + 60) return;
+        out.push(host);
+      });
+      return out;
+    };
+    if (this._flip) this._flip.forEach(fn => fn());
+    const stops = [];
+    // outgoing language: soft blur-out (elements are already hidden by CSS, so animate the incoming ones only)
+    pick(lang).slice(0, 70).forEach((el, i) => {
+      const delay = Math.min(i, 14) * 32;
+      el.style.willChange = 'opacity, filter, transform';
+      el.style.transition = 'none';
+      el.style.opacity = '0';
+      el.style.filter = 'blur(7px)';
+      el.style.transform = 'translateY(7px)';
+      const clear = () => { el.style.transition = ''; el.style.opacity = ''; el.style.filter = ''; el.style.transform = ''; el.style.willChange = ''; };
+      const to = setTimeout(() => {
+        el.style.transition = 'opacity .5s cubic-bezier(.2,.7,.2,1), filter .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.8,.2,1)';
+        el.style.opacity = '1';
+        el.style.filter = 'blur(0px)';
+        el.style.transform = 'translateY(0)';
+        setTimeout(clear, 700);
+      }, delay);
+      stops.push(() => { clearTimeout(to); clear(); });
+    });
+    this._flip = stops;
+  }
+
+  wireCardPill() {
+    const desktop = window.matchMedia('(min-width: 900px) and (hover: hover)').matches;
+    if (!desktop) return;
+    document.querySelectorAll('[data-cta]').forEach(el => { el.style.display = 'none'; });
+    const pill = document.createElement('div');
+    pill.textContent = document.documentElement.getAttribute('data-lang-root') === 'es' ? 'Abrir proyecto' : 'Open project';
+    pill.style.cssText = 'position:fixed;left:0;top:0;z-index:90;pointer-events:none;padding:10px 20px;border-radius:9999px;background:#FBC8DC;color:#0B0B0C;font-size:14px;font-weight:500;white-space:nowrap;opacity:0;transform:translate3d(0,0,0) scale(.86);transition:opacity .18s ease, transform .28s cubic-bezier(.2,.8,.2,1)';
+    document.body.appendChild(pill);
+    let x = 0, y = 0, raf = 0;
+    const place = () => { raf = 0; pill.style.left = (x + 20) + 'px'; pill.style.top = (y + 14) + 'px'; };
+    document.querySelectorAll('[data-card]').forEach(card => {
+      card.addEventListener('mouseenter', e => { x = e.clientX; y = e.clientY; place(); pill.style.opacity = '1'; pill.style.transform = 'scale(1)'; });
+      card.addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; if (!raf) raf = requestAnimationFrame(place); });
+      card.addEventListener('mouseleave', () => { pill.style.opacity = '0'; pill.style.transform = 'scale(.86)'; });
+    });
+    this._pill = pill;
+  }
+
+  wireSelectFrame() {
+    const host = document.querySelector('[data-select-frame]');
+    if (!host) return;
+    const on = (this.props.selectionUi ?? true);
+    if (host._frame) host._frame.remove();
+    if (!on) return;
+    const frame = document.createElement('div');
+    frame.style.cssText = 'position:absolute;inset:-22px -26px;pointer-events:none;border:1px solid #4433CC';
+    const startResize = (e, dir) => {
+      e.preventDefault();
+      const x0 = e.clientX, w0 = host.getBoundingClientRect().width;
+      const move = ev => {
+        const w = w0 + (ev.clientX - x0) * dir;
+        host.style.width = Math.max(320, Math.min(w, window.innerWidth - 80)) + 'px';
+      };
+      const up = () => { window.removeEventListener('mousemove', move); window.removeEventListener('mouseup', up); document.body.style.userSelect = ''; };
+      document.body.style.userSelect = 'none';
+      window.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', up);
+    };
+    [['-5px','-5px','auto','auto','nesw-resize',1], ['-5px','auto','auto','-5px','nwse-resize',-1], ['auto','-5px','-5px','auto','nwse-resize',1], ['auto','auto','-5px','-5px','nesw-resize',-1]].forEach(p => {
+      const h = document.createElement('span');
+      h.style.cssText = 'position:absolute;width:9px;height:9px;background:#0B0B0C;border:1px solid #4433CC;pointer-events:auto;cursor:' + p[4] + ';top:' + p[0] + ';right:' + p[1] + ';bottom:' + p[2] + ';left:' + p[3];
+      h.addEventListener('mousedown', e => startResize(e, p[5]));
+      frame.appendChild(h);
+    });
+    host.appendChild(frame);
+    host._frame = frame;
+  }
+
+  wireMicro() {
+    const ease = 'cubic-bezier(.2,.8,.2,1)';
+
+    document.querySelectorAll('[data-underline]').forEach(a => {
+      if (a._bar) return;
+      const bar = document.createElement('span');
+      bar.style.cssText = 'position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s ' + ease;
+      a.appendChild(bar);
+      a._bar = bar;
+      a.addEventListener('mouseenter', () => { bar.style.transformOrigin = 'left'; bar.style.transform = 'scaleX(1)'; });
+      a.addEventListener('mouseleave', () => { bar.style.transformOrigin = 'right'; bar.style.transform = 'scaleX(0)'; });
+    });
+
+    document.querySelectorAll('[data-arrow]').forEach(ar => {
+      const host = ar.closest('a') || ar.parentElement;
+      if (!host) return;
+      host.addEventListener('mouseenter', () => { ar.style.transform = 'translateX(5px)'; });
+      host.addEventListener('mouseleave', () => { ar.style.transform = 'translateX(0)'; });
+    });
+
+    const header = document.querySelector('[style*="backdrop-filter"]');
+    if (header) {
+      header.style.transition = 'padding .35s ' + ease + ', box-shadow .35s ease, background .35s ease';
+      const onScroll = () => {
+        const s = window.scrollY > 40;
+        header.style.padding = s ? '7px 10px 7px 16px' : '10px 12px 10px 22px';
+        header.style.boxShadow = s ? '0 14px 44px rgba(0,0,0,0.6)' : '0 10px 40px rgba(0,0,0,0.5)';
+        header.style.backgroundColor = s ? 'rgba(24,24,26,0.82)' : 'rgba(24,24,26,0.62)';
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    const counters = document.querySelectorAll('[data-count]');
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        cio.unobserve(el);
+        const target = parseInt(el.getAttribute('data-count'), 10);
+        const start = performance.now();
+        const tick = now => {
+          const t = Math.min(1, (now - start) / 900);
+          el.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        el.textContent = '0';
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(el => cio.observe(el));
+  }
+
+  applyLang(lang) {
+    document.documentElement.setAttribute('data-lang-root', lang);
+    try { localStorage.setItem('flor-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-langbtn]').forEach(b => {
+      const on = b.getAttribute('data-langbtn') === lang;
+      b.style.background = on ? '#F5F5F7' : 'transparent';
+      b.style.color = on ? '#0B0B0C' : '#8E8E93';
+    });
+    if (this._pill) this._pill.textContent = lang === 'es' ? 'Abrir proyecto' : 'Open project';
+    if (this._booted && this.props.motion !== 'off') this.scramble(lang);
+    this._booted = true;
+  }
+
+  wireReveals() {
+    if (this.props.motion === 'off') return;
+    const dist = this.props.motion === 'subtle' ? 10 : 26;
+    const items = document.querySelectorAll('[data-reveal]');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(' + dist + 'px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.getAttribute('data-reveal-delay') || '0', 10);
+        e.target.style.transitionDelay = d + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    items.forEach(el => io.observe(el));
+    const sweep = () => {
+      items.forEach(el => {
+        if (el.style.opacity === '1') return;
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.95) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    };
+    this._sweep = () => { cancelAnimationFrame(this._raf); this._raf = requestAnimationFrame(sweep); };
+    window.addEventListener('scroll', this._sweep, { passive: true });
+    window.addEventListener('resize', this._sweep, { passive: true });
+  }
+
+  renderVals() {
+    return {
+      setEn: () => this.applyLang('en'),
+      setEs: () => this.applyLang('es')
+    };
+  }
+}
+</script>
+</body>
+</html>

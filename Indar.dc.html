@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:#0B0B0C;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+a:hover{color:#F2C14E}
+html:not([data-lang-root]) [data-l="es"]{display:none !important}
+[data-lang-root="en"] [data-l="es"]{display:none !important}
+[data-lang-root="es"] [data-l="en"]{display:none !important}
+:root{--accent:#F2C14E;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(140px,80px) scale(1.14)}66%{transform:translate(-90px,150px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+@keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media (max-width:980px){
+ [data-r="meta"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="two"]{grid-template-columns:1fr !important}
+ [data-r="three"]{grid-template-columns:1fr !important}
+ [data-split]{grid-template-columns:1fr !important;gap:30px !important}
+ [data-r="shots"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media (max-width:720px){
+ [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+ [data-r="meta"]{grid-template-columns:1fr !important}
+ [data-r="shots"]{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0B0B0C"></rect><text x="50" y="52" fill="#F2C14E" font-family="Helvetica,Arial" font-size="22" font-weight="bold" text-anchor="middle" dominant-baseline="central">IND</text></svg></template>
+
+<div style="min-height:100vh;background:#0B0B0C;position:relative;overflow:hidden">
+  <div style="position:fixed;top:-260px;left:8%;width:620px;height:620px;border-radius:9999px;background:radial-gradient(circle,rgba(242,193,78,0.20) 0%,rgba(11,11,12,0) 68%);filter:blur(20px);pointer-events:none;animation:drift 20s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;top:120px;right:-180px;width:560px;height:560px;border-radius:9999px;background:radial-gradient(circle,rgba(120,90,200,0.18) 0%,rgba(11,11,12,0) 66%);filter:blur(24px);pointer-events:none;animation:drift2 26s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;inset:0;background-image:var(--grain);opacity:0.55;mix-blend-mode:overlay;pointer-events:none;z-index:0"></div>
+
+  <div style="position:fixed;top:22px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;display:flex;align-items:center;gap:28px;padding:10px 20px;border-radius:9999px;background-color:rgba(24,24,26,0.62);background-image:var(--grain);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.5)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="Florencia Luis Portfolio.dc.html#work" aria-label="Back to all projects" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:9999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);font-size:15px;line-height:1;transition:border-color .25s ease,color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.38)">←</a>
+        <a href="Florencia Luis Portfolio.dc.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-0.01em">
+          <img src="uploads/pasted-1785967661158-0.png" alt="Florencia Luis" style="width:30px;height:30px;border-radius:9999px;display:block">
+          <span>Florencia Luis</span>
+        </a>
+      </div>
+      <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
+        <button data-langbtn="en" onClick="{{ setEn }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:#F5F5F7;color:#0B0B0C">EN</button>
+        <button data-langbtn="es" onClick="{{ setEs }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:transparent;color:#8E8E93">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:190px 40px 90px;display:flex;flex-direction:column;gap:34px">
+    <span style="font-size:14px;color:#8E8E93">2023 — 2024 · Buenos Aires</span>
+    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:20ch;animation:fadeUp .8s .1s ease both"><span data-l="en">Turning a product feed into a store that sells.</span><span data-l="es">De un feed de productos a una tienda que vende.</span></h1>
+    <p style="margin:0;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#8E8E93;max-width:62ch;animation:fadeUp .9s .2s ease both"><span data-l="en">Indar Equipamientos is a multi-brand seating and furniture distributor with a showroom in Caseros. The store was already online and already selling, so the redesign had to keep every URL and every product working while changing how the catalogue is read.</span><span data-l="es">Indar Equipamientos es un distribuidor multimarca de sillas y mobiliario con showroom en Caseros. La tienda ya estaba online y ya vendía, así que el rediseño tenía que mantener cada URL y cada producto funcionando mientras cambiaba la forma de leer el catálogo.</span></p>
+    <a href="https://www.indarsrl.com.ar" target="_blank" rel="noopener" style="align-self:flex-start;font-size:14px;font-weight:500;padding:12px 22px;border-radius:9999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);transition:border-color .25s ease" style-hover="color:var(--accent);border-color:rgba(242,193,78,0.5)"><span data-l="en">See it live ↗</span><span data-l="es">Ver la tienda ↗</span></a>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 120px">
+    <div data-r="meta" data-reveal="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Role</span><span data-l="es">Rol</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">UX/UI design and implementation, end to end</span><span data-l="es">Diseño UX/UI e implementación, de punta a punta</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Surface</span><span data-l="es">Superficie</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Desktop and mobile store, in Spanish</span><span data-l="es">Tienda desktop y mobile, en español</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Built on</span><span data-l="es">Construido sobre</span></span>
+        <span style="font-size:17px;line-height:1.45">WordPress · WooCommerce · Elementor</span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Constraint</span><span data-l="es">Restricción</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">A live store — no downtime, no broken product URLs</span><span data-l="es">Una tienda en vivo — sin caídas ni URLs rotas</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" data-split="" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The problem</span><span data-l="es">El problema</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">The home page showed stock, not intent.</span><span data-l="es">La home mostraba stock, no intención.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0"><span data-l="en">The old home opened with a brand promo and then a "Nuevos ingresos" feed: a garden set, a dining table, a desk and a stool in one row, ordered by whatever had been loaded last. Below it, six office chairs in an unbroken grid. Nothing on the page told you which of the five product families you were in.</span><span data-l="es">La home anterior abría con una promo de marca y después un feed de "Nuevos ingresos": un juego de jardín, una mesa, un escritorio y un taburete en la misma fila, ordenados por lo último cargado. Debajo, seis sillas de oficina en una grilla sin cortes. Nada en la página decía en cuál de las cinco familias estabas.</span></p>
+      <p style="margin:0"><span data-l="en">Indar sells to four different buyers — one person buying a chair, an office manager equipping a floor, a garden shopper, a wholesaler — and the page treated all of them the same.</span><span data-l="es">Indar le vende a cuatro compradores distintos — alguien que compra una silla, un responsable que equipa una oficina, alguien que busca jardín, un mayorista — y la página los trataba a todos igual.</span></p>
+      <p style="margin:0;color:#F5F5F7"><span data-l="en">The redesign gave every section a name, a reason and a way out.</span><span data-l="es">El rediseño le dio a cada sección un nombre, un motivo y una salida.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 60px;display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before and after</span><span data-l="es">Antes y después</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Four changes that moved the store.</span><span data-l="es">Cuatro cambios que movieron la tienda.</span></h2>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 70px;display:flex;flex-direction:column;gap:20px">
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;flex:1"><img src="assets/indar/old-hero.png" alt="Old home page hero" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.55;color:#8E8E93"><span data-l="en">An image carousel with little room for customisation and slow to load. It was driving people off the page.</span><span data-l="es">Un carrusel de imágenes con poca posibilidad de personalización y alta demora en cargar. Generaba abandonos en la página</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;flex:1"><img src="assets/indar/new-hero.png" alt="New home page hero" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.55;color:#8E8E93"><span data-l="en">A native carousel with fixed images. The text loses its responsive behaviour, but placed well within the image it stays legible on every device.</span><span data-l="es">Un carrusel nativo, con imágenes fijas. Se pierde la caracteristica responsive de los textos, pero aplicánddolos bien en la imagen quedan legibles en todos los dispositivos.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 70px;display:flex;flex-direction:column;gap:20px">
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;flex:1"><img src="assets/indar/old-nuevos.png" alt="Nuevos ingresos feed on the old home page" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.55;color:#8E8E93"><span data-l="en">"Nuevos ingresos" — a garden set, a dining table, a desk and a stool in one row. Four families, one shelf, no exit link.</span><span data-l="es">"Nuevos ingresos" — un juego de jardín, una mesa, un escritorio y un taburete en la misma fila. Cuatro familias, un solo estante, sin link de salida.</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;flex:1"><img src="assets/indar/new-sillas.png" alt="Tu silla ideal section" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.55;color:#8E8E93"><span data-l="en">One feed became three named sections — "Tu silla ideal, al mejor precio", "Los más elegidos de jardín" and "Renová tu hogar" — each tied to one family and ending in a link to its category.</span><span data-l="es">Un feed se convirtió en tres secciones con nombre — "Tu silla ideal, al mejor precio", "Los más elegidos de jardín" y "Renová tu hogar" — cada una atada a una familia y con salida a su categoría.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 70px;display:flex;flex-direction:column;gap:20px">
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;flex:1"><img src="assets/indar/old-jardin.png" alt="Garden combos as a plain product grid" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.55;color:#8E8E93"><span data-l="en">Garden combos as flat product cards. A combo is three or four pieces, and a square photo can't show how it goes together.</span><span data-l="es">Los combos de jardín como fichas planas. Un combo son tres o cuatro piezas, y una foto cuadrada no muestra cómo se arma.</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;flex:1"><img src="assets/indar/new-jardin.png" alt="Los más elegidos de jardín section" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.55;color:#8E8E93"><span data-l="en">Product cards now sit beside lifestyle photography and two short clips of the sets in place, and the section hands off to the full garden category.</span><span data-l="es">Las fichas ahora conviven con fotografía de ambientación y dos clips cortos de los juegos armados, y la sección deriva a la categoría completa de jardín.</span></span>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:36px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">What stayed</span><span data-l="es">Lo que se mantuvo</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">The parts that were already working.</span><span data-l="es">Las partes que ya funcionaban.</span></h2>
+    </div>
+    <div data-r="three" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+      <figure data-reveal="" style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114"><img src="assets/indar/new-corp.png" alt="Corporate band" style="width:100%;display:block"></div>
+        <span style="font-size:15px;font-weight:500"><span data-l="en">The corporate band</span><span data-l="es">La franja de corporativos</span></span>
+        <span style="font-size:15px;line-height:1.6;color:#8E8E93"><span data-l="en">A photographed office, one paragraph and one link. It sends volume enquiries out of the retail cart, so it kept its place mid-scroll.</span><span data-l="es">Una oficina fotografiada, un párrafo y un link. Saca las consultas por volumen del carrito minorista, así que mantuvo su lugar en el medio del scroll.</span></span>
+      </figure>
+      <figure data-reveal="" data-reveal-delay="80" style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114"><img src="assets/indar/new-marcas.png" alt="Represented brand tiles" style="width:100%;display:block"></div>
+        <span style="font-size:15px;font-weight:500"><span data-l="en">Represented brands</span><span data-l="es">Marcas representadas</span></span>
+        <span style="font-size:15px;line-height:1.6;color:#8E8E93"><span data-l="en">Rossi, Voss2000, Rolic and Plaxmetal as photographic tiles, each linking to its own catalogue page. Being the official representative is the sales argument.</span><span data-l="es">Rossi, Voss2000, Rolic y Plaxmetal como tiles fotográficos, cada uno con su página de catálogo. Ser representante oficial es el argumento de venta.</span></span>
+      </figure>
+      <figure data-reveal="" data-reveal-delay="160" style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114"><img src="assets/indar/new-mapa.png" alt="Showroom map and hours" style="width:100%;display:block"></div>
+        <span style="font-size:15px;font-weight:500"><span data-l="en">The showroom, closing the page</span><span data-l="es">El showroom, cerrando la página</span></span>
+        <span style="font-size:15px;line-height:1.6;color:#8E8E93"><span data-l="en">Map, address in Caseros and hours. For a chair, sitting on it still closes more sales than any image, so the scroll ends there.</span><span data-l="es">Mapa, dirección en Caseros y horarios. Para una silla, sentarse en ella cierra más ventas que cualquier imagen, así que el scroll termina ahí.</span></span>
+      </figure>
+    </div>
+  </div>
+
+  
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 90px;display:flex;flex-direction:column;gap:26px">
+    <div data-reveal="" style="border-top:1px solid rgba(255,255,255,0.10);padding-top:44px;display:flex;flex-direction:column;gap:22px">
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Shall we work together?</span><span data-l="es">¿Trabajamos juntos?</span></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#0B0B0C;transform:translateY(-2px)">florbluis@gmail.com</a>
+        <a href="https://behance.net/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">Behance</a>
+        <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">LinkedIn</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-top:8px">
+        <span style="font-size:14px;color:#8E8E93">+54 9 11 6015-7008 · Buenos Aires, Argentina</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    document.documentElement.style.background = '#0B0B0C';
+    document.body.style.background = '#0B0B0C';
+    this.applyLang(localStorage.getItem('flor-lang') || 'en');
+    const items = document.querySelectorAll('[data-reveal]');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.getAttribute('data-reveal-delay') || '0', 10);
+        e.target.style.transitionDelay = d + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    items.forEach(el => io.observe(el));
+    this._sweep = () => {
+      items.forEach(el => {
+        if (el.style.opacity === '1') return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    };
+    window.addEventListener('scroll', this._sweep, { passive: true });
+    window.addEventListener('resize', this._sweep, { passive: true });
+  }
+
+  applyLang(lang) {
+    document.documentElement.setAttribute('data-lang-root', lang);
+    try { localStorage.setItem('flor-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-langbtn]').forEach(b => {
+      const on = b.getAttribute('data-langbtn') === lang;
+      b.style.background = on ? '#F5F5F7' : 'transparent';
+      b.style.color = on ? '#0B0B0C' : '#8E8E93';
+    });
+  }
+
+  renderVals() {
+    return {
+      setEn: () => this.applyLang('en'),
+      setEs: () => this.applyLang('es')
+    };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._sweep);
+    window.removeEventListener('resize', this._sweep);
+  }
+}
+
+</script>
+</body>
+</html>

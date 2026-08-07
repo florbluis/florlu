@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html{scroll-behavior:smooth}
+html,body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto;margin:0;padding:0;background:#0B0B0C;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a,button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto}
+a{color:inherit;text-decoration:none}
+html:not([data-lang-root]) [data-l="es"]{display:none !important}
+[data-lang-root="en"] [data-l="es"]{display:none !important}
+[data-lang-root="es"] [data-l="en"]{display:none !important}
+a:hover{color:#FBC8DC}
+:root{--accent:#FBC8DC;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(140px,80px) scale(1.14)}66%{transform:translate(-90px,150px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+@keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media (max-width:980px){
+ [data-r="meta"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="two"]{grid-template-columns:1fr !important}
+ [data-r="three"]{grid-template-columns:1fr !important}
+ [data-split]{grid-template-columns:1fr !important;gap:30px !important}
+ [data-r="out"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media (max-width:720px){
+ [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+ [data-r="meta"]{grid-template-columns:1fr !important}
+ [data-r="out"]{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0B0B0C;position:relative;overflow:hidden">
+  <div style="position:fixed;top:-260px;left:8%;width:620px;height:620px;border-radius:9999px;background:radial-gradient(circle,rgba(68,51,204,0.34) 0%,rgba(11,11,12,0) 68%);filter:blur(20px);pointer-events:none;animation:drift 20s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;top:120px;right:-180px;width:560px;height:560px;border-radius:9999px;background:radial-gradient(circle,rgba(251,200,220,0.16) 0%,rgba(11,11,12,0) 66%);filter:blur(24px);pointer-events:none;animation:drift2 26s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;inset:0;background-image:var(--grain);opacity:0.55;mix-blend-mode:overlay;pointer-events:none;z-index:0"></div>
+
+  <div style="position:fixed;top:22px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;display:flex;align-items:center;gap:28px;padding:10px 20px;border-radius:9999px;background-color:rgba(24,24,26,0.62);background-image:var(--grain);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.5)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="Florencia Luis Portfolio.dc.html#work" aria-label="Back to all projects" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:9999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);font-size:15px;line-height:1;transition:border-color .25s ease,color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.38)">←</a>
+        <a href="Florencia Luis Portfolio.dc.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-0.01em">
+          <img src="uploads/pasted-1785967661158-0.png" alt="Florencia Luis" style="width:30px;height:30px;border-radius:9999px;display:block">
+          <span>Florencia Luis</span>
+        </a>
+      </div>
+      <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
+        <button data-langbtn="en" onClick="{{ setEn }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:#F5F5F7;color:#0B0B0C">EN</button>
+        <button data-langbtn="es" onClick="{{ setEs }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:transparent;color:#8E8E93">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:190px 40px 90px;display:flex;flex-direction:column;gap:34px">
+    <div style="display:flex;flex-direction:column;gap:16px;animation:fadeUp .6s ease both">
+      <span style="font-size:14px;color:#8E8E93">2024 — 2025</span>
+    </div>
+
+    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:20ch;animation:fadeUp .8s .1s ease both"><span data-l="en">Smart home controls, simplified.</span><span data-l="es">Controles de smart home, simplificados.</span></h1>
+    <p style="margin:0;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#8E8E93;max-width:62ch;animation:fadeUp .9s .2s ease both"><span data-l="en">A redesign of the smart home devices in the DOOR app: quick access, device details and installation, rebuilt so the everyday action is the easy one.</span><span data-l="es">Rediseño de los dispositivos de smart home en la app de DOOR: acceso rápido, detalle del dispositivo e instalación, rehechos para que la acción de todos los días sea la fácil.</span></p>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 80px">
+    <div data-reveal="" style="border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114">
+      <img src="uploads/Frame 4.png" alt="DOOR device screens: thermostat, switch and dimmer" style="width:100%;display:block">
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 120px">
+    <div data-r="meta" data-reveal="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Role</span><span data-l="es">Rol</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Sr. Product Designer — device flows, UI and design system</span><span data-l="es">Sr. Product Designer — flujos de dispositivos, UI y design system</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Worked with</span><span data-l="es">Trabajé con</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Design Team · Product · Engineering · Support</span><span data-l="es">Equipo de Diseño · Producto · Ingeniería · Soporte</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Surface</span><span data-l="es">Superficie</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Smart home devices in the DOOR app (iOS + Android)</span><span data-l="es">Dispositivos smart home en la app de DOOR (iOS + Android)</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Method</span><span data-l="es">Método</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Agile / Scrum — continuous delivery, flow by flow</span><span data-l="es">Agile / Scrum — entrega continua, flujo por flujo</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start" data-split="">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The problem</span><span data-l="es">El problema</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Everything was on the first screen, so nothing was.</span><span data-l="es">Todo estaba en la primera pantalla, así que no estaba nada.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0"><span data-l="en">Users were struggling to perform simple actions. The interface was dense: every capability a device had was exposed at first sight, including the ones almost nobody touches from one month to the next.</span><span data-l="es">A los usuarios les costaba realizar acciones simples. La interfaz era compleja: todas las capacidades del dispositivo estaban expuestas a primera vista, incluidas las que casi nadie toca de un mes al otro.</span></p>
+      <p style="margin:0"><span data-l="en">Configuration and history sat at the same level as turning something on. The daily action had to compete with settings that belong to setup day.</span><span data-l="es">La configuración y el historial estaban al mismo nivel que encender algo. La acción diaria competía con ajustes que pertenecen al día de la instalación.</span></p>
+      <p style="margin:0;color:#F5F5F7"><span data-l="en">The UI was simplified, and settings and history moved to a secondary screen.</span><span data-l="es">Se simplificó la UI, y settings e history pasaron a una pantalla secundaria.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The approach</span><span data-l="es">El enfoque</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Functionality first, with every decision traced back to a UX principle.</span><span data-l="es">Primero la funcionalidad, con cada decisión apoyada en un principio de UX.</span></h2>
+    </div>
+    <div data-r="three" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+      <div data-reveal="" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">01</span>
+        <h3 style="margin:0;font-size:24px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Map the flow before drawing it</span><span data-l="es">Mapear el flujo antes de dibujarlo</span></h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">Each release started from the journey: trigger, actions, pain points, opportunities. Support tickets and usage data decided what to fix first.</span><span data-l="es">Cada release arrancaba desde el journey: disparador, acciones, pain points, oportunidades. Los tickets de soporte y los datos de uso definían qué resolver primero.</span></p>
+      </div>
+      <div data-reveal="" data-reveal-delay="110" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">02</span>
+        <h3 style="margin:0;font-size:24px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">One system, every device</span><span data-l="es">Un sistema, todos los dispositivos</span></h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">One sheet, one settings screen and one update screen, built as components that any device in the catalogue fills with its own state and actions.</span><span data-l="es">Una hoja, una pantalla de ajustes y una de actualización, hechas como componentes que cualquier dispositivo del catálogo completa con su estado y sus acciones.</span></p>
+      </div>
+      <div data-reveal="" data-reveal-delay="220" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">03</span>
+        <h3 style="margin:0;font-size:24px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Ship in slices</span><span data-l="es">Entregar en partes</span></h3>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">Handoff flow by flow in roadmap order, with prototypes for the states that are hard to explain in a spec: out of range, retry, expired permission.</span><span data-l="es">Hand-off flujo por flujo en el orden del roadmap, con prototipos para los estados difíciles de explicar en una spec: fuera de rango, reintento, permiso vencido.</span></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 56px;display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Designed screens</span><span data-l="es">Pantallas diseñadas</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Fewer things on screen, in every flow.</span><span data-l="es">Menos cosas en pantalla, en cada flujo.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#8E8E93;max-width:64ch"><span data-l="en">Each device type had grown its own modal, its own settings screen and its own installation copy. The redesign replaced them with one template each, filled by the device — and left only the daily action in first view.</span><span data-l="es">Cada tipo de dispositivo había desarrollado su propio modal, su propia pantalla de ajustes y sus propios textos de instalación. El rediseño los reemplazó por una plantilla de cada uno, que se completa según el dispositivo — y dejó en primera vista sólo la acción diaria.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 96px;display:flex;flex-direction:column;gap:30px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">01</span>
+      <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Quick access modal</span><span data-l="es">Modal de acceso rápido</span></h3>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Tapping a device card opens a sheet to do one thing fast. The old sheet exposed every capability at once, so the one action people came for was the hardest to find.</span><span data-l="es">Tocar la tarjeta de un dispositivo abre una hoja para hacer una cosa rápido. La hoja anterior exponía todas las capacidades a la vez, así que la única acción por la que la gente entraba era la más difícil de encontrar.</span></p>
+    </div>
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-old-thermostat.png" alt="Old thermostat quick access sheet" style="width:100%;display:block"></div><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-old-switch.png" alt="Old switch quick access sheet" style="width:100%;display:block"></div></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">An Enable toggle, a stepper, six mode chips and a link to settings — stacked in cards, with the device state competing with its controls. A switch used a different layout again.</span><span data-l="es">Un toggle de Enable, un stepper, seis chips de modo y un link a ajustes — apilados en tarjetas, con el estado del dispositivo compitiendo con sus controles. Un switch usaba otro layout distinto.</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-new-thermostat.png" alt="New thermostat quick access sheet" style="width:100%;display:block"></div><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-new-switch.png" alt="New switch quick access sheet" style="width:100%;display:block"></div></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">One template for the whole catalogue: name and room up top, settings behind the gear, the current state as the largest thing on screen, and up to three action tiles that each show their value. A switch is the same sheet with one tile.</span><span data-l="es">Una plantilla para todo el catálogo: nombre y ambiente arriba, ajustes detrás del engranaje, el estado actual como el elemento más grande y hasta tres tiles de acción que muestran su valor. Un switch es la misma hoja con un solo tile.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 96px;display:flex;flex-direction:column;gap:30px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">02</span>
+      <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Device details</span><span data-l="es">Detalle del dispositivo</span></h3>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Settings and history left the first view and became a screen of their own — the one you open on setup day or when something is wrong, not every day.</span><span data-l="es">Settings e history salieron de la primera vista y pasaron a ser una pantalla propia — la que se abre el día de la instalación o cuando algo falla, no todos los días.</span></p>
+    </div>
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/details-old.png" alt="Old device settings screen" style="width:100%;display:block"></div></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">Three tabs at the top of the device, a single flat list mixing editable settings with read-only identifiers, Delete device sitting in the middle of it, and a floating button covering the last rows.</span><span data-l="es">Tres pestañas arriba del dispositivo, una lista plana que mezclaba ajustes editables con identificadores de sólo lectura, Delete device en el medio, y un botón flotante tapando las últimas filas.</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/details-new.png" alt="New device settings screen" style="width:100%;display:block"></div></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">A secondary screen, reached from the gear in the sheet. One scroll, two groups: Settings holds everything editable and shows its current value inline, Info holds history and the read-only identity. Destructive actions leave the list, and the standard tab bar replaces the floating button.</span><span data-l="es">Una pantalla secundaria, a la que se llega desde el engranaje de la hoja. Un solo scroll, dos grupos: Settings reúne todo lo editable y muestra su valor actual en la fila, Info reúne el historial y la identidad de sólo lectura. Las acciones destructivas salen de la lista y la barra de navegación reemplaza al botón flotante.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 96px;display:flex;flex-direction:column;gap:30px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">03</span>
+      <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Installation flow</span><span data-l="es">Flujo de instalación</span></h3>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Updates run while the user waits next to the hardware. The screen has one job: keep them there, and tell them the truth about what is happening.</span><span data-l="es">Las actualizaciones corren mientras el usuario espera al lado del hardware. La pantalla tiene un solo trabajo: que se quede ahí, y decirle la verdad sobre lo que está pasando.</span></p>
+    </div>
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/install-old.png" alt="Old firmware update screen" style="width:100%;display:block"></div></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">A progress bar that did not track anything real, an empty image slot, device-specific copy ("Updating DoorBug…") and a warning box repeating the instruction already given above it.</span><span data-l="es">Una barra de progreso que no medía nada real, un espacio de imagen vacío, texto atado al dispositivo ("Updating DoorBug…") y un cuadro de advertencia que repetía la instrucción que ya estaba arriba.</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/install-new.png" alt="New firmware update screen" style="width:100%;display:block"></div></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">The false progress bar is gone. What replaces it is real feedback: a render of the hardware being updated, so the user knows which box to stand next to, and one clear instruction said once. Device-agnostic copy lets one screen serve the whole catalogue.</span><span data-l="es">La barra de progreso falsa desapareció. En su lugar hay feedback real: un render del hardware que se está actualizando, para que el usuario sepa al lado de qué caja quedarse, y una sola instrucción dicha una vez. El texto independiente del dispositivo permite que una pantalla sirva para todo el catálogo.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:30px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">04</span>
+      <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">And the file it all lives in</span><span data-l="es">Y el archivo donde vive todo</span></h3>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Handoff only works if engineering can find the screen. The device work was spread across a deprecated file with one page per device type and duplicated frames; it was rebuilt as a single file organised by flow.</span><span data-l="es">El handoff sólo funciona si ingeniería encuentra la pantalla. El trabajo de dispositivos estaba repartido en un archivo deprecado con una página por tipo de dispositivo y frames duplicados; se rehízo como un solo archivo organizado por flujo.</span></p>
+    </div>
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/figma-old.png" alt="Deprecated Figma file" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">Ready for Dev [Deprecated] — a page per device type, thermostat frames repeated three times over, legacy hardware in the same canvas as current, and no way to tell which version shipped.</span><span data-l="es">Ready for Dev [Deprecated] — una página por tipo de dispositivo, frames de termostato repetidos tres veces, hardware legacy en el mismo canvas que el actual y sin forma de saber qué versión salió a producción.</span></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/figma-new.png" alt="Reorganised Figma file" style="width:100%;display:block"></div>
+        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">One Devices file, pages grouped by flow, and inside each one labelled sections — Quick actions, Device settings, Card states, Devices list — with resident and PM/staff views next to each other and a Ready for dev branch marking what is handed off.</span><span data-l="es">Un solo archivo Devices, páginas agrupadas por flujo y, dentro, secciones etiquetadas — Quick actions, Device settings, Card states, Devices list — con las vistas de residente y de PM/staff una al lado de la otra y una rama Ready for dev marcando lo entregado.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px">
+    <a href="https://www.figma.com/proto/AeC7v44ndc1VykRJjJTPnG/App-rebrand?node-id=872-21280&viewport=2413%2C208%2C0.12&t=o9t7Kgb4702mzI6I-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1855%3A123743&show-proto-sidebar=1&page-id=841%3A36866" target="_blank" rel="noopener" data-reveal="" style="display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background-color:rgba(255,255,255,0.035);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);border-radius:26px;padding:34px 36px;transition:border-color .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),background .3s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.30);background-color:rgba(255,255,255,0.06);transform:translateY(-4px)">
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:56ch">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Interactive prototype</span><span data-l="es">Prototipo interactivo</span></span>
+        <span style="font-size:clamp(22px,2.8vw,30px);font-weight:500;letter-spacing:-0.03em"><span data-l="en">Walk the flows in Figma</span><span data-l="es">Recorrer los flujos en Figma</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">The clickable prototype of the device flows, from the devices list through quick access, settings and installation.</span><span data-l="es">El prototipo clickeable de los flujos de dispositivos, desde el listado hasta acceso rápido, ajustes e instalación.</span></span>
+      </div>
+      <span style="flex:none;font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C">Figma ↗</span>
+    </a>
+  </div>
+
+  <div data-r="pad" data-split="" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">My contribution</span><span data-l="es">Mi aporte</span></span>
+      <h2 style="margin:0;font-size:clamp(26px,3.6vw,40px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">What I owned</span><span data-l="es">De qué me encargué</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column">
+      <div style="padding:22px 0;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;gap:7px">
+        <span style="font-size:19px;font-weight:500;letter-spacing:-0.02em"><span data-l="en">Smart home device flows</span><span data-l="es">Flujos de dispositivos smart home</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Quick access, device details and installation end to end, from the entry point to the edge cases, with the daily action as the first constraint.</span><span data-l="es">Acceso rápido, detalle del dispositivo e instalación de punta a punta, desde el punto de entrada hasta los edge cases, con la acción diaria como primera restricción.</span></span>
+      </div>
+      <div style="padding:22px 0;border-top:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;gap:7px">
+        <span style="font-size:19px;font-weight:500;letter-spacing:-0.02em"><span data-l="en">Design system</span><span data-l="es">Design system</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">The device components — cards, sheets, action tiles, states — plus tokens, documentation, and helping engineering adopt them.</span><span data-l="es">Los componentes de dispositivos — tarjetas, hojas, tiles de acción, estados — más tokens, documentación y acompañar a ingeniería en su adopción.</span></span>
+      </div>
+      <div style="padding:22px 0;border-top:1px solid rgba(255,255,255,0.10);border-bottom:1px solid rgba(255,255,255,0.10);display:flex;flex-direction:column;gap:7px">
+        <span style="font-size:19px;font-weight:500;letter-spacing:-0.02em"><span data-l="en">Prototyping</span><span data-l="es">Prototipado</span></span>
+        <span style="font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Every flow prototyped by hand in Figma, including the states that are hard to explain in a spec: mid-update, offline, and a device that does not respond.</span><span data-l="es">Cada flujo prototipado a mano en Figma, incluyendo los estados difíciles de explicar en una especificación: actualización en curso, offline y un dispositivo que no responde.</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 90px;display:flex;flex-direction:column;gap:26px">
+    <div data-reveal="" style="border-top:1px solid rgba(255,255,255,0.10);padding-top:44px;display:flex;flex-direction:column;gap:22px">
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Shall we work together?</span><span data-l="es">¿Trabajamos juntos?</span></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#0B0B0C;transform:translateY(-2px)">florbluis@gmail.com</a>
+        <a href="https://behance.net/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">Behance</a>
+        <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">LinkedIn</a>
+      </div>
+      <span style="font-size:14px;color:#8E8E93">+54 9 11 6015-7008 · Buenos Aires, Argentina</span>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    document.documentElement.style.background = '#0B0B0C';
+    document.body.style.background = '#0B0B0C';
+    this.applyLang(localStorage.getItem('flor-lang') || 'en');
+    const items = document.querySelectorAll('[data-reveal]');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.getAttribute('data-reveal-delay') || '0', 10);
+        e.target.style.transitionDelay = d + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    items.forEach(el => io.observe(el));
+    this._sweep = () => {
+      items.forEach(el => {
+        if (el.style.opacity === '1') return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    };
+    window.addEventListener('scroll', this._sweep, { passive: true });
+    window.addEventListener('resize', this._sweep, { passive: true });
+  }
+
+  applyLang(lang) {
+    document.documentElement.setAttribute('data-lang-root', lang);
+    try { localStorage.setItem('flor-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-langbtn]').forEach(b => {
+      const on = b.getAttribute('data-langbtn') === lang;
+      b.style.background = on ? '#F5F5F7' : 'transparent';
+      b.style.color = on ? '#0B0B0C' : '#8E8E93';
+    });
+  }
+
+  renderVals() {
+    return {
+      setEn: () => this.applyLang('en'),
+      setEs: () => this.applyLang('es')
+    };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._sweep);
+    window.removeEventListener('resize', this._sweep);
+  }
+}
+</script>
+</body>
+</html>
