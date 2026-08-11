@@ -37,14 +37,14 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
  [data-r="about-img"]{height:400px !important;border-radius:0 24px 24px 0 !important}
  [data-r="about-text"]{padding:0 22px !important}
  [data-r="stats-wrap"]{padding:0 22px !important}
- [data-r="stats"]{grid-template-columns:1fr !important}
+ [data-r="stats"]{grid-template-columns:1fr !important;height:auto !important}
  [data-r="work-grid"]{grid-template-columns:1fr !important}
  [data-r="exp-row"]{grid-template-columns:1fr !important;gap:12px !important}
  [data-r="exp-tags"]{grid-column:auto !important}
  [data-r="contact-card"]{padding:60px 24px !important;border-radius:26px !important}
  #work,#experience,#contact{padding-left:22px !important;padding-right:22px !important}
 }
-@keyframes diagWipe{from{clip-path:polygon(-40% -46px, -30% -46px, -74% calc(100% + 56px), -84% calc(100% + 56px))}to{clip-path:polygon(-40% -46px, 168% -46px, 124% calc(100% + 56px), -84% calc(100% + 56px))}}
+@keyframes titleGrow{from{transform:scale(.6) translateY(10%);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 </style>
 </helmet>
 
@@ -88,7 +88,7 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
 
 
 
-      <div data-select-frame="" style="position:relative;align-self:flex-start;width:min(880px,100%);max-width:100%;container-type:inline-size;animation:diagWipe 1.5s .25s cubic-bezier(.55,.05,.25,1) both">
+      <div data-select-frame="" style="position:relative;align-self:flex-start;width:min(880px,100%);max-width:100%;container-type:inline-size;transform-origin:left top;animation:titleGrow 1s .2s cubic-bezier(.2,.8,.2,1) both">
         <h1 style="margin:0;font-weight:600;font-size:clamp(34px,13.4cqw,132px);line-height:1.06;letter-spacing:-0.05em">
           <span data-l="en">
             <span style="display:block;overflow:hidden;padding-bottom:6px"><span style="display:inline-block">Design that</span></span>
@@ -130,8 +130,8 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
         </p>
       </div>
     </div>
-    <div style="margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 38px; height: 207px; width: 1098px" data-r="stats-wrap">
-      <div data-reveal="" data-reveal-delay="160" data-r="stats" style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.10); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.10); width: 100%; height: 135px">
+    <div style="margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 38px; height: auto; width: 1098px" data-r="stats-wrap">
+      <div data-reveal="" data-reveal-delay="160" data-r="stats" style="display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.10); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,0.10); width: 100%; height: auto">
         <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:6px">
           <span data-count="6" style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em">6</span>
           <span style="font-size:14px;color:#8E8E93"><span data-l="en">years designing</span><span data-l="es">años diseñando</span></span>
@@ -146,13 +146,14 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
         </div>
       </div>
       <div data-reveal="" data-reveal-delay="220" style="display:flex;flex-wrap:wrap;gap:8px">
-        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">LLMs</span><span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Claude AI</span><span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
         <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UI Design</span>
         <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UX Research</span>
         <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Design systems</span>
         <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Prototyping</span>
-        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">HTML / CSS / Sass</span>
-        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Jira · Miro</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Adobe Illustrator</span><span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Adobe Photoshop</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">HTML / CSS / Sass / Bootstrap</span>
+        <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Wordpress</span><span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:#C7C7CC;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Jira</span>
       </div>
     </div>
   </div>
@@ -230,7 +231,7 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
       <span style="font-size:14px;color:#8E8E93">2024 — <span data-l="en">present</span><span data-l="es">presente</span></span>
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Sr. Product Designer · Latch/DOOR</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Design of user-centric flows for both app and web, focusing on functionality. Decision-making based on UX principles. Maintenance and development of the design system. AI tools creation and coding for app and web.</span><span data-l="es">Diseño de flujos centrados en el usuario para app y web, con foco en la funcionalidad. Decisiones basadas en principios de UX. Mantenimiento y desarrollo del design system. Creación y codeo de herramientas con IA para app y web.</span></p>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Design of user-centric flows for both app and web, focusing on functionality. Decision-making based on UX principles, analyzing and mapping use cases. Maintenance and development of the design system for both app and web. Using Claude AI to improve work processes and Claude Code to update code for both app and web.</span><span data-l="es">Diseño de flujos centrados en el usuario para app y web, con foco en la funcionalidad. Decisiones basadas en principios de UX, con análisis y mapeo de casos de uso. Mantenimiento y desarrollo del design system para app y web. Uso de Claude AI para agilizar procesos de trabajo y de Claude Code para actualizar código de la app y la web.</span></p>
       </div>
       <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
         <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
@@ -243,10 +244,12 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
       <span style="font-size:14px;color:#8E8E93">2022 — 2024</span>
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Ssr. UX/UI Designer · Certant S.A</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Project management, time tracking and team training. Designed and prototyped web proposals focused on functionality and UX. Performed front-end development using different programming languages as required.</span><span data-l="es">Gestión de proyectos, seguimiento de tiempos y formación del equipo. Diseño y prototipado de propuestas web centradas en la funcionalidad y la UX. Desarrollo front-end con distintos lenguajes según lo requerido.</span></p>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Project management, time tracking and team training. Designed and prototyped web proposals focused on functionality and UX using Figma, with Agile/Scrum methodologies. Performed front-end development using different programming languages as required.</span><span data-l="es">Gestión de proyectos, seguimiento de tiempos y formación del equipo. Diseño y prototipado de propuestas web centradas en la funcionalidad y la UX usando Figma, con metodologías Agile/Scrum. Desarrollo front-end con distintos lenguajes según lo requerido.</span></p>
       </div>
       <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
         <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UX research</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Agile / Scrum</span>
         <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Front-end</span>
         <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Responsive</span>
       </div>
@@ -256,23 +259,31 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
       <span style="font-size:14px;color:#8E8E93">2024 — <span data-l="en">present</span><span data-l="es">presente</span></span>
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Brand Consultant&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Freelance brand consultant since 2024 — art direction, eCommerce, web design and content.</span><span data-l="es">Consultora de marca freelance desde 2024 — dirección de arte, eCommerce, diseño web y contenido.</span></p>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Freelance brand consultant since 2024, managing Indar's digital communication.</span><span data-l="es">Consultora de marca freelance desde 2024, a cargo del control y la gestión de la comunicación digital.</span></p>
       </div>
       <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Art direction</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Graphic Design</span><span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">eCommerce</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Web design</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Digital communication</span>
       </div>
     </div><div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93">2019 — <span data-l="en">2024</span><span data-l="es">2024</span></span>
+      <span style="font-size:14px;color:#8E8E93">2023 — 2024</span>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em"><span style="letter-spacing: -0.72px;">Team Lead&nbsp;</span><span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">&nbsp;Design lead from 2023 to 2024, and Ssr. Multimedia Designer from 2019 to 2023 — art direction, eCommerce, web design and content.</span><span data-l="es">Líder de equipo de diseño entre 2023 y 2024, y Ssr. Multimedia Designer entre 2019 y 2023.</span></p>
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Design Lead&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Leadership of a team of two designers, encouraging innovation and personal growth.</span><span data-l="es">Liderazgo de un equipo de dos diseñadoras, fomentando la innovación y el crecimiento personal.</span></p>
+      </div>
+      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Team leadership</span>
+      </div>
+    </div>
+
+    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
+      <span style="font-size:14px;color:#8E8E93">2019 — 2023</span>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Ssr. Multimedia Designer&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Art direction and crafting of social media pieces. Leading marketing campaigns and management of social media.</span><span data-l="es">Dirección de arte y creación de piezas para redes sociales. Liderazgo de campañas de marketing y gestión de redes sociales.</span></p>
       </div>
       <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
         <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Art direction</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Graphic Design</span><span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">eCommerce</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Web design</span>
+        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Social media</span>
       </div>
     </div>
 
