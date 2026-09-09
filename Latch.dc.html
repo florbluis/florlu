@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<title>DOOR devices redesign</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -61,7 +62,7 @@ a:hover{color:#FBC8DC}
       <span style="font-size:14px;color:#8E8E93">2024 — 2025</span>
     </div>
 
-    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:20ch;animation:fadeUp .8s .1s ease both"><span data-l="en">Smart home controls, simplified.</span><span data-l="es">Un Smart home más fácil de usar.</span></h1>
+    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:20ch;animation:fadeUp .8s .1s ease both"><span data-l="en">A smart home that's easier to use.</span><span data-l="es">Un Smart home más fácil de usar.</span></h1>
     <p style="margin:0;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#8E8E93;max-width:62ch;animation:fadeUp .9s .2s ease both"><span data-l="en">A redesign of the smart home devices in the DOOR app: quick access, device details and installation, rebuilt so the everyday action is the easy one.</span><span data-l="es">Rediseño de los dispositivos de smart home en la app de DOOR: acceso rápido, detalle del dispositivo e instalación, rehechos para que la acción de todos los días sea la fácil.</span></p>
   </div>
 
@@ -75,7 +76,7 @@ a:hover{color:#FBC8DC}
   <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start" data-split="">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
       <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The problem</span><span data-l="es">El problema</span></span>
-      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Every capability was exposed on the first screen, all at once.</span><span data-l="es">Todas las funciones expuestas a la vez generaba mucha confusion para los usuarios</span></h2>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Having every feature exposed at once created a lot of confusion for users.</span><span data-l="es">Todas las funciones expuestas a la vez generaba mucha confusion para los usuarios</span></h2>
     </div>
     <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
       <p style="margin:0"><span data-l="en">Users were struggling to perform simple actions. The interface was dense: every capability a device had was exposed at first sight, including the ones almost nobody touches from one month to the next.</span><span data-l="es">A los usuarios les costaba realizar acciones simples. La interfaz era compleja: todas las capacidades del dispositivo estaban expuestas a primera vista, incluidas las que casi nadie toca de un mes al otro.</span></p>
@@ -98,12 +99,12 @@ a:hover{color:#FBC8DC}
       <div data-reveal="" data-reveal-delay="110" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
         <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">02</span>
         <h3 style="margin:0;font-size:24px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">One system, every device</span><span data-l="es">Un sistema, todos los dispositivos</span></h3>
-        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">One sheet, one settings screen and one update screen, built as components that any device in the catalogue fills with its own state and actions.</span><span data-l="es">Una bottom sheet, una pantalla de configuraciones. Creadas con atomic design, donde todo esta componetizado para una mejor implementación posterior</span></p>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">One bottom sheet, one settings screen. Built with atomic design, where everything is componentized for easier implementation down the line.</span><span data-l="es">Una bottom sheet, una pantalla de configuraciones. Creadas con atomic design, donde todo esta componetizado para una mejor implementación posterior</span></p>
       </div>
       <div data-reveal="" data-reveal-delay="220" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:14px">
         <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">03</span>
         <h3 style="margin:0;font-size:24px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Ship in slices</span><span data-l="es">Entregar en partes</span></h3>
-        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">Handoff flow by flow in roadmap order, with prototypes for the states that are hard to explain in a spec: out of range, retry, expired permission.</span><span data-l="es">Hand-off flujo por flujo en el orden del roadmap, con prototipos para los estados difíciles de explicar en una spec.</span></p>
+        <p style="margin:0;font-size:16px;line-height:1.62;color:#8E8E93"><span data-l="en">Handoff flow by flow in roadmap order, with prototypes for the states that are hard to explain in a spec.</span><span data-l="es">Hand-off flujo por flujo en el orden del roadmap, con prototipos para los estados difíciles de explicar en una spec.</span></p>
       </div>
     </div>
   </div>
@@ -112,8 +113,8 @@ a:hover{color:#FBC8DC}
   <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 56px;display:flex;flex-direction:column;gap:16px">
     <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
       <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Designed screens</span><span data-l="es">Pantallas diseñadas</span></span>
-      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Fewer things on screen, in every flow.</span><span data-l="es">Una pantalla más limpia generó un uso más fácil</span></h2>
-      <p style="margin:0;font-size:18px;line-height:1.65;color:#8E8E93;max-width:64ch"><span data-l="en">Each device type had grown its own modal, its own settings screen and its own installation copy. The redesign replaced them with one template each, filled by the device — and left only the daily action in first view.</span><span data-l="es">Cada tipo de dispositivo había desarrollado su propio modal, su propia pantalla de ajustes y sus propios textos de instalación. Junto con el rediseño, las únicas pantallas que son únicas son las bottom sheets respectivas a cada dispositivo. Settings y history fueron unificadas bajo un único template. Haciendo más fácil no solo la implementación sino también la adaptación del usuario.</span></p>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">A cleaner screen made it easier to use.</span><span data-l="es">Una pantalla más limpia generó un uso más fácil</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#8E8E93;max-width:64ch"><span data-l="en">Each device type had grown its own modal, its own settings screen and its own installation copy. With the redesign, the only screens that stay unique per device are their respective bottom sheets. Settings and history were unified under a single template — making it easier not just to build, but for users to adapt to.</span><span data-l="es">Cada tipo de dispositivo había desarrollado su propio modal, su propia pantalla de ajustes y sus propios textos de instalación. Junto con el rediseño, las únicas pantallas que son únicas son las bottom sheets respectivas a cada dispositivo. Settings y history fueron unificadas bajo un único template. Haciendo más fácil no solo la implementación sino también la adaptación del usuario.</span></p>
     </div>
   </div>
 
@@ -121,18 +122,16 @@ a:hover{color:#FBC8DC}
     <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
       <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">01</span>
       <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Quick access modal</span><span data-l="es">Modal de quick access</span></h3>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Tapping a device card opens a sheet to do one thing fast. The old sheet exposed every capability at once, so the one action people came for was the hardest to find.</span><span data-l="es">Al hacer tap en la card, se abre un bottom sheet de acción rápida. En el caso el thermostat es una interfaz más limpia y más fácil de utilizar las acciones diarias. En los otros dispositivos como el Dimmer y Switch, la interfaz es simplemente más fácil de utilizar ya que el tap area es mayor.</span></p>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Tapping the card opens a quick-action bottom sheet. For the thermostat, it's a cleaner interface that makes daily actions easier to use. For other devices like the Dimmer and Switch, the interface is simply easier to use since the tap area is larger.</span><span data-l="es">Al hacer tap en la card, se abre un bottom sheet de acción rápida. En el caso el thermostat es una interfaz más limpia y más fácil de utilizar las acciones diarias. En los otros dispositivos como el Dimmer y Switch, la interfaz es simplemente más fácil de utilizar ya que el tap area es mayor.</span></p>
     </div>
     <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-old-thermostat.png" alt="Old thermostat quick access sheet" style="width:100%;display:block"></div><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-old-switch.png" alt="Old switch quick access sheet" style="width:100%;display:block"></div></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">An Enable toggle, a stepper, six mode chips and a link to settings — stacked in cards, with the device state competing with its controls. A switch used a different layout again.</span></span>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-new-thermostat.png" alt="New thermostat quick access sheet" style="width:100%;display:block"></div><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/qa-new-switch.png" alt="New switch quick access sheet" style="width:100%;display:block"></div></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">One template for the whole catalogue: name and room up top, settings behind the gear, the current state as the largest thing on screen, and up to three action tiles that each show their value. A switch is the same sheet with one tile.</span></span>
       </div>
     </div>
   </div>
@@ -147,12 +146,10 @@ a:hover{color:#FBC8DC}
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/details-old.png" alt="Old device settings screen" style="width:100%;display:block"></div></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">Three tabs at the top of the device, a single flat list mixing editable settings with read-only identifiers, Delete device sitting in the middle of it, and a floating button covering the last rows.</span></span>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/details-new.png" alt="New device settings screen" style="width:100%;display:block"></div></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">A secondary screen, reached from the gear in the sheet. One scroll, two groups: Settings holds everything editable and shows its current value inline, Info holds history and the read-only identity. Destructive actions leave the list, and the standard tab bar replaces the floating button.</span></span>
       </div>
     </div>
   </div>
@@ -161,18 +158,16 @@ a:hover{color:#FBC8DC}
     <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
       <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">03</span>
       <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Installation flow</span><span data-l="es">Flujo de instalación</span></h3>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Updates run while the user waits next to the hardware. The screen has one job: keep them there, and tell them the truth about what is happening.</span><span data-l="es">Se actualizó no sólo la UI sino también hubo un trabajo de ingeniería para hacer las actualizaciones más rápidas y con feedback real. Anteriormente el tiempo era estimado y la barra de progreso era falsa, dando un feedback frustrante para el usuario al quedar parada en 90% si algo fallaba.</span></p>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">We updated not just the UI — there was also engineering work to make updates faster and give real feedback. Previously the time was estimated and the progress bar was fake, giving frustrating feedback to the user when it got stuck at 90% if something failed.</span><span data-l="es">Se actualizó no sólo la UI sino también hubo un trabajo de ingeniería para hacer las actualizaciones más rápidas y con feedback real. Anteriormente el tiempo era estimado y la barra de progreso era falsa, dando un feedback frustrante para el usuario al quedar parada en 90% si algo fallaba.</span></p>
     </div>
     <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/install-old.png" alt="Old firmware update screen" style="width:100%;display:block"></div></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">A progress bar that did not track anything real, an empty image slot, device-specific copy ("Updating DoorBug…") and a warning box repeating the instruction already given above it.</span></span>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
         <div style="display:flex;gap:14px;align-items:flex-start"><div style="flex:0 1 240px;max-width:240px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/install-new.png" alt="New firmware update screen" style="width:100%;display:block"></div></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">The false progress bar is gone. What replaces it is real feedback: a render of the hardware being updated, so the user knows which box to stand next to, and one clear instruction said once. Device-agnostic copy lets one screen serve the whole catalogue.</span></span>
       </div>
     </div>
   </div>
@@ -181,13 +176,12 @@ a:hover{color:#FBC8DC}
     <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;max-width:70ch">
       <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)">04</span>
       <h3 style="margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">And the file it all lives in</span><span data-l="es">Y el archivo donde vive todo</span></h3>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Handoff only works if engineering can find the screen. The device work was spread across a deprecated file with one page per device type and duplicated frames; it was rebuilt as a single file organised by flow.</span><span data-l="es">El handoff sólo funciona si ingeniería encuentra la pantalla. El archivo era un caos de pantallas, comentarios y cosas deprecadas. Al ahora tener plantillas para las pantallas de settings y history, el archivo fue simplificado y más fácil de gestionar.</span></p>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#8E8E93"><span data-l="en">Handoff only works if engineering can find the screen. The file was a mess of screens, comments and deprecated stuff. Now that there are templates for the settings and history screens, the file is simpler and easier to manage.</span><span data-l="es">El handoff sólo funciona si ingeniería encuentra la pantalla. El archivo era un caos de pantallas, comentarios y cosas deprecadas. Al ahora tener plantillas para las pantallas de settings y history, el archivo fue simplificado y más fácil de gestionar.</span></p>
     </div>
     <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start">
       <div style="display:flex;flex-direction:column;gap:12px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
         <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.12);background:#111114"><img src="assets/door/figma-old.png" alt="Deprecated Figma file" style="width:100%;display:block"></div>
-        <span style="font-size:14px;line-height:1.6;color:#8E8E93"><span data-l="en">Ready for Dev [Deprecated] — a page per device type, thermostat frames repeated three times over, legacy hardware in the same canvas as current, and no way to tell which version shipped.</span></span>
       </div>
       <div style="display:flex;flex-direction:column;gap:12px">
         <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Ahora</span></span>
