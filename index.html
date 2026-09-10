@@ -37,8 +37,6 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
 @keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
 @media (max-width:1080px){
  [data-r="work-grid"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
- [data-r="exp-row"]{grid-template-columns:150px 1fr !important;gap:26px !important}
- [data-r="exp-tags"]{grid-column:2 / -1 !important;justify-content:flex-start !important}
  [data-r="stats-wrap"]{width:100% !important;height:auto !important;max-width:1180px !important}
 }
 @media (max-width:860px){
@@ -49,10 +47,8 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
  [data-r="about-text"]{padding:0 22px !important}
  [data-r="stats-wrap"]{padding:0 22px !important}
  [data-r="work-grid"]{grid-template-columns:1fr !important}
- [data-r="exp-row"]{grid-template-columns:1fr !important;gap:12px !important}
- [data-r="exp-tags"]{grid-column:auto !important}
  [data-r="contact-card"]{padding:60px 24px !important;border-radius:26px !important}
- #work,#experience,#contact{padding-left:22px !important;padding-right:22px !important}
+ #work,#contact{padding-left:22px !important;padding-right:22px !important}
 }
 @keyframes titleGrow{from{transform:scale(.6) translateY(10%);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 </style>
@@ -76,7 +72,6 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
       <div data-r="nav-links" style="display:flex;gap:26px;font-size:14px;color:#8E8E93">
         <a href="#about" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:60px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
         <a href="#work" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:56px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">Work</span><span data-l="es">Trabajo</span></a>
-        <a href="#experience" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:84px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">Experience</span><span data-l="es">Experiencia</span></a>
         <a href="#contact" style="position:relative;padding:2px 0;transition:color .25s ease;min-width:66px;text-align:center" style-hover="color:#F5F5F7" data-underline=""><span data-l="en">Contact</span><span data-l="es">Contacto</span></a>
       </div>
       <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
@@ -170,7 +165,6 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
             <span style="font-size:13px;color:#8E8E93">2025 — <span data-l="en">present</span><span data-l="es">presente</span></span>
           </div>
           <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">DOOR Redesign</span><span data-l="es">Rediseño de DOOR</span></h3>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">A full redesign of DOOR. Both mobile screens (iOS/Android) and web screens (DOOR OS). Dev-ready in four weeks, with a team of five designers.</span><span data-l="es">Rediseño integral de DOOR. Tanto pantallas mobile (iOS/Android) como pantallas web (DOOR OS). Listo para desarrollo en cuatro semanas, un equipo de cinco diseñadores.</span></p>
           <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
         </div>
       </a>
@@ -184,7 +178,6 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
             <span style="font-size:13px;color:#8E8E93">2025</span>
           </div>
           <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">Devices redesign in DOOR</span><span data-l="es">Devices redesign en DOOR</span></h3>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Quick access, device detail and installation flow cards. Redesigned not just visually, but with a strong focus on usability.</span><span data-l="es">Cards de quick access, device detail y flujo de instalación. Rediseñados no sólo visualmente sino también haciendo principal foco en la usabilidad.</span></p>
           <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
         </div>
       </a>
@@ -198,7 +191,6 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
             <span style="font-size:13px;color:#8E8E93">2023 · Uruguay</span>
           </div>
           <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">Biometrics in a bank's acquisition flow</span><span data-l="es">Biometría en el flujo de adquisición bancaria</span></h3>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Integrating the first biometric banking flow in Uruguay. Thinking not just about the UI, but the end user. Production-ready in weeks.</span><span data-l="es">Integración del primer flujo biométrico bancario en Uruguay. Pensar no sólo en la UI sino en el usuario final. Listo para producción en semanas.</span></p>
           <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
         </div>
       </a>
@@ -212,83 +204,9 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
             <span style="font-size:13px;color:#8E8E93">2023 — 2024</span>
           </div>
           <h3 style="margin:0;font-size:clamp(23px,2.6vw,28px);font-weight:500;letter-spacing:-0.035em;line-height:1.15"><span data-l="en">A new ecommerce, redesigned and built</span><span data-l="es">Un nuevo ecommerce, rediseñado e implementado</span></h3>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"><span data-l="en">Redesign and implementation of the Indar Equipamientos online store: catalogue structure, product pages and checkout, plus the development work in WordPress.</span><span data-l="es">Rediseño e implementación de la tienda online de Indar Equipamientos: estructura del catálogo, fichas de producto y checkout, más el trabajo de desarrollo en Wordpress.</span></p>
           <span data-cta="" style="display:flex;align-items:center;gap:8px;font-size:13px;color:#8E8E93;margin-top:auto;padding-top:10px"><span data-l="en">Full project</span><span data-l="es">Ver proyecto</span><span data-arrow="" style="display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)">→</span></span>
         </div>
       </a>
-    </div>
-  </div>
-
-  <div id="experience" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 140px;display:flex;flex-direction:column;gap:8px">
-    <h2 data-reveal="" style="margin:0 0 30px;font-size:clamp(32px,5.6vw,54px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">Experience</span><span data-l="es">Experiencia</span></h2>
-
-    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93">2024 — <span data-l="en">present</span><span data-l="es">presente</span></span>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Sr. Product Designer · Latch/DOOR</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Design of user-centric flows for both app and web, focusing on functionality. Decision-making based on UX principles, analyzing and mapping use cases. Maintenance and development of the design system for both app and web. Using Claude AI to improve work processes and Claude Code to update code for both app and web.</span><span data-l="es">Diseño de flujos centrados en el usuario para app y web, con foco en la funcionalidad. Decisiones basadas en principios de UX, con análisis y mapeo de casos de uso. Mantenimiento y desarrollo del design system para app y web. Uso de Claude AI para agilizar procesos de trabajo y de Claude Code para actualizar código de la app y la web.</span></p>
-      </div>
-      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Claude AI</span><span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Design system</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Agile / Scrum</span>
-      </div>
-    </div>
-
-    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93">2022 — 2024</span>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Ssr. UX/UI Designer · Certant S.A</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Project management, time tracking and team training. Designed and prototyped web proposals focused on functionality and UX using Figma, with Agile/Scrum methodologies. Performed front-end development using different programming languages as required.</span><span data-l="es">Gestión de proyectos, seguimiento de tiempos y formación del equipo. Diseño y prototipado de propuestas web centradas en la funcionalidad y la UX usando Figma, con metodologías Agile/Scrum. Desarrollo front-end con distintos lenguajes según lo requerido.</span></p>
-      </div>
-      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Figma</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">UX research</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Agile / Scrum</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Front-end</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Responsive</span>
-      </div>
-    </div>
-
-    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93">2024 — <span data-l="en">present</span><span data-l="es">presente</span></span>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Brand Consultant&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Freelance brand consultant since 2024, managing Indar's digital communication.</span><span data-l="es">Consultora de marca freelance desde 2024, a cargo del control y la gestión de la comunicación digital.</span></p>
-      </div>
-      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Digital communication</span>
-      </div>
-    </div><div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93">2023 — 2024</span>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Design Lead&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Leadership of a team of two designers, encouraging innovation and personal growth.</span><span data-l="es">Liderazgo de un equipo de dos diseñadoras, fomentando la innovación y el crecimiento personal.</span></p>
-      </div>
-      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Team leadership</span>
-      </div>
-    </div>
-
-    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93">2019 — 2023</span>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Ssr. Multimedia Designer&nbsp;<span style="letter-spacing: -0.72px;">·&nbsp;</span>Indar Equipamientos S.R.L</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93;max-width:58ch"><span data-l="en">Art direction and crafting of social media pieces. Leading marketing campaigns and management of social media.</span><span data-l="es">Dirección de arte y creación de piezas para redes sociales. Liderazgo de campañas de marketing y gestión de redes sociales.</span></p>
-      </div>
-      <div data-r="exp-tags" style="display:flex;flex-wrap:wrap;gap:7px;justify-content:flex-end">
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Art direction</span>
-        <span style="font-size:12px;padding:6px 13px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#8E8E93;transition:transform .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease" style-hover="transform:translateY(-3px);border-color:rgba(255,255,255,0.4);color:#F5F5F7">Social media</span>
-      </div>
-    </div>
-
-    <div data-reveal="" data-r="exp-row" style="display:grid;grid-template-columns:200px 1fr 260px;gap:40px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.10);border-bottom:1px solid rgba(255,255,255,0.10);align-items:baseline">
-      <span style="font-size:14px;color:#8E8E93"><span data-l="en">Education</span><span data-l="es">Educación</span></span>
-      <div style="display:flex;flex-direction:column;gap:8px">
-        <span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">UX Design · Google Coursera</span><span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">UX/UI Design · Coderhouse</span><span style="font-size:clamp(20px,2.4vw,24px);font-weight:500;letter-spacing:-0.03em">Multimedia Design<span style="letter-spacing: -0.72px;"> · </span>Escuela Da Vinci</span>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#8E8E93"></p>
-      </div>
-      <div></div>
     </div>
   </div>
 
