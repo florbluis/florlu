@@ -47,8 +47,8 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
  [data-r="about-text"]{padding:0 22px !important}
  [data-r="stats-wrap"]{padding:0 22px !important}
  [data-r="work-grid"]{grid-template-columns:1fr !important}
- [data-r="contact-card"]{padding:60px 24px !important;border-radius:26px !important}
- #work,#contact{padding-left:22px !important;padding-right:22px !important}
+ [data-r="contact-card"]{padding:60px 24px !important}
+ #work{padding-left:22px !important;padding-right:22px !important}
 }
 @keyframes titleGrow{from{transform:scale(.6) translateY(10%);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 </style>
@@ -121,8 +121,8 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
           <span data-l="es">¡Hola! Soy Flor, Product Designer con base en Buenos Aires</span>
         </p>
         <p data-reveal="" data-reveal-delay="80" style="margin:0;font-size:19px;line-height:1.65;color:#8E8E93;max-width:56ch">
-          <span data-l="en">With 6+ years specialized in UX and UI for web and native (iOS/Android) products in both B2B and B2C — banking and tech industries. I work end-to-end: problem thinking, research, building solutions, testing and following up on the results. Over the past year I've been integrating AI tools into my daily workflow to streamline handoff.</span>
-          <span data-l="es">Con más de 6 años especializada en UX y UI para productos web y nativos (iOS/Android), tanto B2B como B2C — en las industrias bancaria y tech. Trabajo de punta a punta: pensamiento del problema, research, construcción de soluciones, testing y seguimiento de los resultados. Durante el último año fui integrando herramientas de IA a mi flujo de trabajo diario para agilizar el handoff.</span>
+          <span data-l="en">With 6+ years specialized in product design for both B2B and B2C — banking and tech industries. <br> I work end-to-end: problem thinking, research, building solutions, testing and following up on the results. <br> Over the past year I've been integrating AI tools into my daily workflow to streamline handoff.</span>
+          <span data-l="es">Con más de 6 años de especialización en diseño de productos web y nativos, tanto B2B como B2C — en las industrias bancaria y tech. <br>  Trabajo end-to-end: definición del problema, research, armado de soluciones, testing y seguimiento de los resultados. <br> Durante el último año fui integrando herramientas de IA a mi flujo de trabajo diario para agilizar el handoff.</span>
         </p>
         <div data-reveal="" data-reveal-delay="140" style="display:flex;flex-direction:column;gap:14px">
           <span style="font-size:15px;font-weight:600;letter-spacing:-0.01em;color:#F5F5F7">
@@ -229,26 +229,29 @@ html:not([data-lang-root]) [data-l="es"]{display:none !important}
     </div>
   </div>
 
-  <div id="contact" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 100px">
-    <div data-reveal="" data-r="contact-card" style="border-radius: 34px; color: #fff; padding: 100px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px; position: relative; overflow: hidden; background-color: #2C246D">
+  <div id="contact" style="position:relative;z-index:1;">
+    <div data-r="contact-card" style="color: #fff; padding: 100px 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 22px; position: relative; overflow: hidden; background-color: #2C246D; height:75vh">
       <div style="position: absolute; top: -193px; left: -151px; width: 460px; height: 460px; border-radius: 9999px; background: radial-gradient(circle,rgba(251,200,220,0.45) 0%,rgba(68,51,204,0) 68%)"></div>
       <div style="position: absolute; width: 480px; height: 480px; border-radius: 9999px; background: radial-gradient(circle,rgba(252,219,60,0.34) 0%,rgba(68,51,204,0) 68%); left: 779px; top: 122px"></div>
 
-      <img src="uploads/pasted-1785967682458-0.png" alt="Florencia Luis" style="position: static; width: 132px; height: 132px; object-fit: cover; margin-bottom: 6px"><span style="position:relative;font-size:17px;color:rgba(255,255,255,0.85)"><span data-l="en">Thanks for your interest in my profile</span><span data-l="es">Gracias por tu interés en mi perfil</span></span>
-      <h2 style="position:relative;margin:0;font-size:clamp(32px,6.4vw,72px);font-weight:600;letter-spacing:-0.05em;line-height:1"><span data-l="en">Shall we work together?&nbsp;<span style="letter-spacing: -3.6px;">🚀</span></span><span data-l="es">¿Trabajamos juntos? 🚀</span></h2>
-      <div style="position:relative;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px">
+      <div data-reveal="" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:6px">
+        <img src="uploads/pasted-1785967682458-0.png" alt="Florencia Luis" style="width: 132px; height: 132px; object-fit: cover">
+        <span style="font-size:17px;color:rgba(255,255,255,0.85)"><span data-l="en">Thanks for your interest in my profile</span><span data-l="es">Gracias por tu interés en mi perfil</span></span>
+      </div>
+      <h2 data-reveal="" data-reveal-delay="90" style="position:relative;margin:0;font-size:clamp(32px,6.4vw,72px);font-weight:600;letter-spacing:-0.05em;line-height:1"><span data-l="en">Shall we work together?&nbsp;<span style="letter-spacing: -3.6px;">🚀</span></span><span data-l="es">¿Trabajamos juntos? 🚀</span></h2>
+      <div data-reveal="" data-reveal-delay="180" style="position:relative;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px">
         <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#fff;color:#3327A6;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#3327A6;background:rgba(255,255,255,0.9);transform:translateY(-2px)">florbluis@gmail.com</a>
         <a data-l="en" href="uploads/florencia-luis-resume.pdf" download="Florencia Luis - Resume.pdf" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#fff;color:#3327A6;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#3327A6;background:rgba(255,255,255,0.9);transform:translateY(-2px)">Download resume</a>
         <a data-l="es" href="uploads/florencia-luis-cv.pdf" download="Florencia Luis - CV.pdf" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#fff;color:#3327A6;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#3327A6;background:rgba(255,255,255,0.9);transform:translateY(-2px)">Descargar CV</a>
         <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.14);background-image:var(--grain);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.32);color:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s ease" style-hover="color:#fff;background-color:rgba(255,255,255,0.26);transform:translateY(-2px)">LinkedIn</a><a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.14);background-image:var(--grain);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.32);color:#fff;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .25s ease" style-hover="color:#fff;background-color:rgba(255,255,255,0.26);transform:translateY(-2px)">+54 9 11 6015-7008</a>
       </div>
-
+    <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8E8E93">
+        <span>Florencia Luis · 2026</span>
+      </div>
     </div>
   </div>
 
-  <div style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 56px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#8E8E93">
-    <span>Florencia Luis · 2026</span>
-  </div>
+  
 </div>
 
 </x-dc>
