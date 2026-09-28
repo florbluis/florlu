@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0;background:#0B0B0C;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+a:hover{color:#F2C14E}
+html:not([data-lang-root]) [data-l="es"]{display:none !important}
+[data-lang-root="en"] [data-l="es"]{display:none !important}
+[data-lang-root="es"] [data-l="en"]{display:none !important}
+:root{--accent:#F2C14E;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(140px,80px) scale(1.14)}66%{transform:translate(-90px,150px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+@keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+@media (max-width:980px){
+ [data-r="meta"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="two"]{grid-template-columns:1fr !important}
+ [data-r="three"]{grid-template-columns:1fr !important}
+ [data-split]{grid-template-columns:1fr !important;gap:30px !important}
+}
+@media (max-width:720px){
+ [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+ [data-flow-row]{flex-direction:column !important;align-items:stretch !important}
+ [data-step]{max-width:none !important;flex-direction:row !important;align-items:center;gap:14px !important}
+ [data-step] > div{flex:1;min-height:0 !important;padding:14px !important}
+ [data-step] > span{flex:0 0 110px;text-align:left !important}
+ [data-arrow-step]{height:auto !important;transform:rotate(90deg);align-self:flex-start !important;margin-left:24px}
+ [data-r="meta"]{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0B0B0C"></rect><text x="50" y="52" fill="#F2C14E" font-family="Helvetica,Arial" font-size="22" font-weight="bold" text-anchor="middle" dominant-baseline="central">IEB</text></svg></template>
+
+<div style="min-height:100vh;background:#0B0B0C;position:relative;overflow:hidden">
+  <div style="position:fixed;top:-260px;left:8%;width:620px;height:620px;border-radius:9999px;background:radial-gradient(circle,rgba(242,193,78,0.20) 0%,rgba(11,11,12,0) 68%);filter:blur(20px);pointer-events:none;animation:drift 20s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;top:120px;right:-180px;width:560px;height:560px;border-radius:9999px;background:radial-gradient(circle,rgba(120,90,200,0.18) 0%,rgba(11,11,12,0) 66%);filter:blur(24px);pointer-events:none;animation:drift2 26s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;inset:0;background-image:var(--grain);opacity:0.55;mix-blend-mode:overlay;pointer-events:none;z-index:0"></div>
+
+  <div style="position:fixed;top:22px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;display:flex;align-items:center;gap:28px;padding:10px 20px;border-radius:9999px;background-color:rgba(24,24,26,0.62);background-image:var(--grain);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.5)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="index.html#work" aria-label="Back to all projects" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:9999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);font-size:15px;line-height:1;transition:border-color .25s ease,color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.38)">←</a>
+        <a href="index.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-0.01em">
+          <img src="uploads/pasted-1785967661158-0.png" alt="Florencia Luis" style="width:30px;height:30px;border-radius:9999px;display:block">
+          <span>Florencia Luis</span>
+        </a>
+      </div>
+      <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
+        <button data-langbtn="en" onClick="{{ setEn }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:#F5F5F7;color:#0B0B0C">EN</button>
+        <button data-langbtn="es" onClick="{{ setEs }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:transparent;color:#8E8E93">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:190px 40px 90px;display:flex;flex-direction:column;gap:34px">
+    <span style="font-size:14px;color:#8E8E93">Indar Equipamientos · Buenos Aires</span>
+    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:19ch;animation:fadeUp .8s .1s ease both"><span data-l="en">From waiting on me, to sending it yourself.</span><span data-l="es">De esperarme a mí, a mandarlo vos mismo.</span></h1>
+    <p style="margin:0;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#8E8E93;max-width:62ch;animation:fadeUp .9s .2s ease both"><span data-l="en">Indar's marketing team needed me and our designer for every email. I built them a tool that writes, styles and lays out on-brand campaigns on its own.</span><span data-l="es">El equipo de marketing de Indar nos necesitaba a mí y a nuestro diseñador para cada email. Les construí una herramienta que redacta, diseña y arma campañas on-brand sola.</span></p>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 120px">
+    <div data-r="meta" data-reveal="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Role</span><span data-l="es">Rol</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Solo — design &amp; build</span><span data-l="es">Diseño y desarrollo, en solitario</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Surface</span><span data-l="es">Superficie</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Internal web tool</span><span data-l="es">Herramienta web interna</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Built on</span><span data-l="es">Construido sobre</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Claude · generative AI</span><span data-l="es">Claude · IA generativa</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Timeline</span><span data-l="es">Tiempo</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">2 working days</span><span data-l="es">2 días hábiles</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" data-split="" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The problem</span><span data-l="es">El problema</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Every campaign depended on two busy people.</span><span data-l="es">Cada campaña dependía de dos personas sin tiempo.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0"><span data-l="en">The team wanted to send newsletters regularly, but nobody outside design could build one.</span><span data-l="es">El equipo quería mandar newsletters seguido, pero nadie fuera de diseño podía armarlos.</span></p>
+      <p style="margin:0"><span data-l="en">Most of the time went into explaining the brief, not designing.</span><span data-l="es">La mayor parte del tiempo se iba en explicar el brief, no en diseñar.</span></p>
+      <p style="margin:0;color:#F5F5F7"><span data-l="en">The knowledge lived in two people's heads.</span><span data-l="es">El conocimiento estaba en la cabeza de dos personas.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:24px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The process</span><span data-l="es">El proceso</span></span>
+      <h2 style="margin:0;font-size:clamp(26px,3.6vw,40px);font-weight:500;letter-spacing:-0.035em"><span data-l="en">Fewer steps, fewer hand-offs.</span><span data-l="es">Menos pasos, menos pases de mano.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="0" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">8 steps · 4 through me</span><span data-l="es">8 pasos · 4 pasan por mí</span></span>
+      </div>
+      <div data-flow="">
+        <div data-flow-row="" style="display:flex;gap:8px;align-items:flex-start;width:100%">
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Select featured products</span><span data-l="es">Elegir productos destacados</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">PO</span><span data-l="es">PO</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Newsletter concept + copy</span><span data-l="es">Concepto + copies del newsletter</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Coworker <span style="color:var(--accent)">and I</span></span><span data-l="es">Compañera <span style="color:var(--accent)">y yo</span></span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Review</span><span data-l="es">Revisión</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en"><span style="color:var(--accent)">Me</span></span><span data-l="es"><span style="color:var(--accent)">Yo</span></span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Design in EnvíaloSimple</span><span data-l="es">Diseño en EnvíaloSimple</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Designer</span><span data-l="es">Diseñador</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Review</span><span data-l="es">Revisión</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en"><span style="color:var(--accent)">Me</span></span><span data-l="es"><span style="color:var(--accent)">Yo</span></span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Send test email</span><span data-l="es">Enviar email de prueba</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Designer</span><span data-l="es">Diseñador</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Review</span><span data-l="es">Revisión</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en"><span style="color:var(--accent)">Me</span></span><span data-l="es"><span style="color:var(--accent)">Yo</span></span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background:var(--accent);color:#0B0B0C;border:1px solid var(--accent);border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Send campaign</span><span data-l="es">Enviar campaña</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en"><span style="color:var(--accent)">Me</span></span><span data-l="es"><span style="color:var(--accent)">Yo</span></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="120" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">After</span><span data-l="es">Después</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">6 steps · 1 shared review</span><span data-l="es">6 pasos · 1 revisión compartida</span></span>
+      </div>
+      <div data-flow="">
+        <div data-flow-row="" style="display:flex;gap:8px;align-items:flex-start;width:100%">
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Select featured products</span><span data-l="es">Elegir productos destacados</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">PO</span><span data-l="es">PO</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Design in the Email Builder</span><span data-l="es">Diseño en el Email Builder</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Coworker + Designer</span><span data-l="es">Compañera + Diseñador</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Move to EnvíaloSimple</span><span data-l="es">Pasar a EnvíaloSimple</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Designer</span><span data-l="es">Diseñador</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Send test email</span><span data-l="es">Enviar email de prueba</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Designer</span><span data-l="es">Diseñador</span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background-color:rgba(255,255,255,0.05);background-image:var(--grain);border:1px solid rgba(255,255,255,0.12);color:#F5F5F7;border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Review</span><span data-l="es">Revisión</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93"><span data-l="en">Coworker <span style="color:var(--accent)">and I</span></span><span data-l="es">Compañera <span style="color:var(--accent)">y yo</span></span></span>
+          </div>
+          <span data-arrow-step="" aria-hidden="true" style="flex:0 0 auto;align-self:flex-start;height:74px;display:flex;align-items:center;justify-content:center;color:#8E8E93;font-size:16px">&#8594;</span>
+          <div data-step="" style="flex:1 1 0;min-width:0;max-width:136px;display:flex;flex-direction:column;gap:10px">
+            <div style="background:var(--accent);color:#0B0B0C;border:1px solid var(--accent);border-radius:14px;min-height:74px;padding:10px 10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px;line-height:1.35;font-weight:500"><span data-l="en">Send campaign</span><span data-l="es">Enviar campaña</span></div>
+            <span style="font-size:13px;text-align:center;color:#8E8E93">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 60px;display:flex;flex-direction:column;gap:16px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">How it works</span><span data-l="es">Cómo funciona</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Two ways in, always on-brand.</span><span data-l="es">Dos formas de empezar, siempre on-brand.</span></h2>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:20px">
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);border:1px solid rgba(255,255,255,0.10);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Path one — from a link</span><span data-l="es">Camino uno — desde un link</span></span>
+        <h3 style="margin:0;font-size:22px;font-weight:500;letter-spacing:-0.02em;line-height:1.3"><span data-l="en">Paste a product link, get an email.</span><span data-l="es">Pegás un link de producto, te queda un mail.</span></h3>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#8E8E93"><span data-l="en">The builder reads the product page and turns it into a ready-to-send email in Indar's style. Pick a tone and you're done.</span><span data-l="es">El builder lee la página del producto y la convierte en un email listo para enviar, con el estilo de Indar. Elegís un tono y listo.</span></p>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:6px">
+          <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">Product link</span><span data-l="es">Link de producto</span></span>
+          <span style="color:#8E8E93;font-size:14px">→</span>
+          <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">Tone + goal</span><span data-l="es">Tono + objetivo</span></span>
+          <span style="color:#8E8E93;font-size:14px">→</span>
+          <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">Ready to send</span><span data-l="es">Listo para enviar</span></span>
+        </div>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);border:1px solid rgba(255,255,255,0.10);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:16px">
+        <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Path two — from scratch</span><span data-l="es">Camino dos — desde cero</span></span>
+        <h3 style="margin:0;font-size:22px;font-weight:500;letter-spacing:-0.02em;line-height:1.3"><span data-l="en">Build it block by block.</span><span data-l="es">Armalo bloque por bloque.</span></h3>
+        <p style="margin:0;font-size:15.5px;line-height:1.62;color:#8E8E93"><span data-l="en">Nine blocks locked to Indar's palette and typography. Drag them in, write copy with AI and generate images when there's no photo.</span><span data-l="es">Nueve bloques fijos con la paleta y tipografía de Indar. Los arrastrás, escribís el copy con IA y generás imágenes cuando no hay foto.</span></p>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:6px">
+          <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">Brand blocks</span><span data-l="es">Bloques de marca</span></span>
+          <span style="color:#8E8E93;font-size:13px">+</span>
+          <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">AI copy</span><span data-l="es">Copy con IA</span></span>
+          <span style="color:#8E8E93;font-size:13px">+</span>
+          <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">AI images</span><span data-l="es">Imágenes con IA</span></span>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="120" style="font-size:13.5px;color:#8E8E93;padding-top:4px"><span data-l="en">Either way, it exports as HTML ready for EnvíaloSimple.</span><span data-l="es">En ambos casos, se exporta como HTML listo para EnvíaloSimple.</span></div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 100px;display:flex;flex-direction:column;gap:20px">
+    <div data-reveal="" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10)">
+          <img src="assets/indar-email-builder/canvas.png" alt="Lienzo del email builder con la paleta de bloques a la izquierda" style="width:100%;display:block">
+        </div>
+        <figcaption style="margin:0;font-size:13.5px;line-height:1.5;color:#8E8E93"><span data-l="en">The canvas and its nine blocks.</span><span data-l="es">El canvas y sus nueve bloques.</span></figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10)">
+          <img src="assets/indar-email-builder/link-modal.png" alt="Modal para generar un newsletter completo desde un link de producto" style="width:100%;display:block">
+        </div>
+        <figcaption style="margin:0;font-size:13.5px;line-height:1.5;color:#8E8E93"><span data-l="en">From a link to a full email.</span><span data-l="es">De un link a un email completo.</span></figcaption>
+      </figure>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start;margin-top:4px">
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10)">
+          <img src="assets/indar-email-builder/ai-copy-modal.png" alt="Modal para escribir copy con IA en tres variantes de tono" style="width:100%;display:block">
+        </div>
+        <figcaption style="margin:0;font-size:13.5px;line-height:1.5;color:#8E8E93"><span data-l="en">AI copy in three tones.</span><span data-l="es">Copy con IA en tres tonos.</span></figcaption>
+      </figure>
+      <figure style="margin:0;display:flex;flex-direction:column;gap:12px">
+        <div style="border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.10)">
+          <img src="assets/indar-email-builder/ai-image-modal.png" alt="Modal para generar banners e imágenes con IA con la paleta de Indar" style="width:100%;display:block">
+        </div>
+        <figcaption style="margin:0;font-size:13.5px;line-height:1.5;color:#8E8E93"><span data-l="en">AI image generation.</span><span data-l="es">Generación de imágenes con IA.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div data-r="pad" data-split="" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;border-top:1px solid rgba(255,255,255,0.10);padding-top:80px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">How it got built</span><span data-l="es">Cómo se construyó</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Designed, built and tested in two days.</span><span data-l="es">Diseñado, construido y testeado en dos días.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0"><span data-l="en">I built it alone with Claude and tested it with the team before daily use. No dev handoff.</span><span data-l="es">La construí sola con Claude y la testeé con el equipo antes de usarla a diario. Sin handoff a desarrollo.</span></p>
+      <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px">
+        <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px">Idea</span>
+        <span style="font-size:14px">→</span>
+        <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">Built with Claude</span><span data-l="es">Construido con Claude</span></span>
+        <span style="font-size:14px">→</span>
+        <span style="font-size:12.5px;color:#F5F5F7;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:9999px;padding:7px 13px"><span data-l="en">Tested with the team</span><span data-l="es">Testeado con el equipo</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" data-split="" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 50px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;border-top:1px solid rgba(255,255,255,0.10);padding-top:80px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The result</span><span data-l="es">El resultado</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">Campaigns the team sends on its own.</span><span data-l="es">Campañas que el equipo envía por su cuenta.</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0;color:#F5F5F7"><span data-l="en">Newsletters no longer wait on design. The team builds on-brand campaigns and sends them on its own.</span><span data-l="es">Los newsletters ya no esperan a diseño. El equipo arma campañas on-brand y las envía por su cuenta.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:28px">
+    <div data-r="two" data-reveal="" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(34px,4.4vw,52px);font-weight:600;letter-spacing:-0.045em;color:var(--accent)">+12%</span>
+        <span style="font-size:17px;font-weight:500"><span data-l="en">Open rate</span><span data-l="es">Tasa de apertura</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">From 15% to 27%</span><span data-l="es">De 15% a 27%</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(34px,4.4vw,52px);font-weight:600;letter-spacing:-0.045em;color:var(--accent)">+1%</span>
+        <span style="font-size:17px;font-weight:500"><span data-l="en">Click rate</span><span data-l="es">Tasa de clics</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">From under 1% to 2%</span><span data-l="es">De menos de 1% a 2%</span></span>
+      </div>
+    </div>
+    <div data-r="two" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px">
+        <span style="align-self:flex-start;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.14);background-color:rgba(255,255,255,0.05);color:#8E8E93"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <img src="assets/indar-email-builder/results-before.jpg" alt="Campaign designed the old way — July 2026" loading="lazy" style="width:100%;height:auto;display:block;border-radius:18px;border:1px solid rgba(255,255,255,0.10)">
+        <span style="font-size:14px;color:#8E8E93"><span data-l="en">Campaign designed the old way — July 2026</span><span data-l="es">Campaña hecha a la manera anterior — julio 2026</span></span>
+      </div>
+      <div data-reveal="" data-reveal-delay="110" style="display:flex;flex-direction:column;gap:12px">
+        <span style="align-self:flex-start;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 14px;border-radius:9999px;border:1px solid rgba(255,255,255,0.14);background-color:rgba(255,255,255,0.05);color:var(--accent)"><span data-l="en">After</span><span data-l="es">Después</span></span>
+        <img src="assets/indar-email-builder/results-after.jpg" alt="Campaign made with the Email Builder — September 2026" loading="lazy" style="width:100%;height:auto;display:block;border-radius:18px;border:1px solid rgba(255,255,255,0.10)">
+        <span style="font-size:14px;color:#8E8E93"><span data-l="en">Campaign made with the Email Builder — September 2026</span><span data-l="es">Campaña hecha con el Email Builder — septiembre 2026</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 90px;display:flex;flex-direction:column;gap:26px">
+    <div data-reveal="" style="border-top:1px solid rgba(255,255,255,0.10);padding-top:44px;display:flex;flex-direction:column;gap:22px">
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Shall we work together?</span><span data-l="es">¿Trabajamos juntos?</span></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#0B0B0C;transform:translateY(-2px)">florbluis@gmail.com</a>
+        <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">LinkedIn</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;padding-top:8px">
+        <span style="font-size:14px;color:#8E8E93">+54 9 11 6015-7008 · Buenos Aires, Argentina</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    document.documentElement.style.background = '#0B0B0C';
+    document.body.style.background = '#0B0B0C';
+    this.applyLang(localStorage.getItem('flor-lang') || 'en');
+    const items = document.querySelectorAll('[data-reveal]');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.getAttribute('data-reveal-delay') || '0', 10);
+        e.target.style.transitionDelay = d + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    items.forEach(el => io.observe(el));
+    this._sweep = () => {
+      items.forEach(el => {
+        if (el.style.opacity === '1') return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    };
+    window.addEventListener('scroll', this._sweep, { passive: true });
+    window.addEventListener('resize', this._sweep, { passive: true });
+  }
+
+  applyLang(lang) {
+    document.documentElement.setAttribute('data-lang-root', lang);
+    try { localStorage.setItem('flor-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-langbtn]').forEach(b => {
+      const on = b.getAttribute('data-langbtn') === lang;
+      b.style.background = on ? '#F5F5F7' : 'transparent';
+      b.style.color = on ? '#0B0B0C' : '#8E8E93';
+    });
+  }
+
+  renderVals() {
+    return {
+      setEn: () => this.applyLang('en'),
+      setEs: () => this.applyLang('es')
+    };
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._sweep);
+    window.removeEventListener('resize', this._sweep);
+  }
+}
+
+</script>
+</body>
+</html>

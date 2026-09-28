@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+html{scroll-behavior:smooth}
+html,body{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto;margin:0;padding:0;background:#0B0B0C;color:#F5F5F7;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-wrap:pretty}
+a,button{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cpath d='M5 4 L24 13.2 L14.6 15.4 L10.6 24 Z' fill='%23FBC8DC' stroke='%23FBC8DC' stroke-width='3.4' stroke-linejoin='round'/%3E%3C/svg%3E") 5 4, auto}
+a{color:inherit;text-decoration:none}
+html:not([data-lang-root]) [data-l="es"]{display:none !important}
+[data-lang-root="en"] [data-l="es"]{display:none !important}
+[data-lang-root="es"] [data-l="en"]{display:none !important}
+a:hover{color:#FBC8DC}
+:root{--accent:#FBC8DC;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.34'/%3E%3C/svg%3E")}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}33%{transform:translate(140px,80px) scale(1.14)}66%{transform:translate(-90px,150px) scale(.94)}100%{transform:translate(0,0) scale(1)}}
+@keyframes drift2{0%{transform:translate(0,0) scale(1)}40%{transform:translate(-160px,120px) scale(1.12)}75%{transform:translate(80px,-90px) scale(.96)}100%{transform:translate(0,0) scale(1)}}
+@keyframes marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes fadeUp{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+[data-carousel]:hover [data-carousel-track]{animation-play-state:paused}
+@media (max-width:980px){
+ [data-r="three"]{grid-template-columns:1fr !important}
+ [data-r="gal2"]{grid-template-columns:1fr !important}
+ [data-r="tl"]{grid-template-columns:1fr !important;gap:14px !important}
+ [data-r="meta"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="two"]{grid-template-columns:1fr !important}
+ [data-r="phones"]{gap:28px !important}
+ [data-split]{grid-template-columns:1fr !important;gap:30px !important}
+ [data-r="phases"]{grid-template-columns:1fr !important}
+ [data-r="out"]{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+ [data-r="cjm"]{overflow-x:auto}
+}
+@media (max-width:720px){
+ [data-r="pad"]{padding-left:22px !important;padding-right:22px !important}
+ [data-r="meta"]{grid-template-columns:1fr !important}
+ [data-r="out"]{grid-template-columns:1fr !important}
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0B0B0C;position:relative;overflow:hidden">
+  <div style="position:fixed;top:-260px;left:8%;width:620px;height:620px;border-radius:9999px;background:radial-gradient(circle,rgba(68,51,204,0.34) 0%,rgba(11,11,12,0) 68%);filter:blur(20px);pointer-events:none;animation:drift 20s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;top:120px;right:-180px;width:560px;height:560px;border-radius:9999px;background:radial-gradient(circle,rgba(251,200,220,0.16) 0%,rgba(11,11,12,0) 66%);filter:blur(24px);pointer-events:none;animation:drift2 26s ease-in-out infinite;z-index:0"></div>
+  <div style="position:fixed;inset:0;background-image:var(--grain);opacity:0.55;mix-blend-mode:overlay;pointer-events:none;z-index:0"></div>
+
+  <div data-modal="" style="position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:48px;background:rgba(8,8,9,0.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)">
+    <img data-modal-img="" src="" alt="" style="max-width:100%;max-height:100%;border-radius:20px;border:1px solid rgba(255,255,255,0.14);display:block;box-shadow:0 40px 100px rgba(0,0,0,0.6)">
+    <button type="button" data-modal-close="" style="position:absolute;top:26px;right:28px;width:42px;height:42px;border-radius:9999px;border:1px solid rgba(255,255,255,0.18);background:rgba(255,255,255,0.08);color:#F5F5F7;font-size:16px;cursor:inherit">✕</button>
+  </div>
+
+  <div style="position:fixed;top:22px;left:0;right:0;z-index:50;display:flex;justify-content:center;pointer-events:none">
+    <div style="pointer-events:auto;display:flex;align-items:center;gap:28px;padding:10px 20px;border-radius:9999px;background-color:rgba(24,24,26,0.62);background-image:var(--grain);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);border:1px solid rgba(255,255,255,0.10);box-shadow:0 10px 40px rgba(0,0,0,0.5)">
+      <div style="display:flex;align-items:center;gap:12px">
+        <a href="index.html#work" aria-label="Back to all projects" style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:9999px;border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.06);font-size:15px;line-height:1;transition:border-color .25s ease,color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.38)">←</a>
+        <a href="index.html" style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:500;letter-spacing:-0.01em">
+          <img src="uploads/pasted-1785967661158-0.png" alt="Florencia Luis" style="width:30px;height:30px;border-radius:9999px;display:block">
+          <span>Florencia Luis</span>
+        </a>
+      </div>
+      <div style="display:flex;gap:2px;padding:3px;border-radius:9999px;background:rgba(255,255,255,0.07)">
+        <button data-langbtn="en" onClick="{{ setEn }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:#F5F5F7;color:#0B0B0C">EN</button>
+        <button data-langbtn="es" onClick="{{ setEs }}" style="font-family:inherit;font-size:12px;font-weight:500;padding:6px 13px;border:0;border-radius:9999px;background:transparent;color:#8E8E93">ES</button>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;padding-top:190px;padding-bottom:90px;display:flex;flex-direction:column;gap:34px">
+    <div style="display:flex;flex-direction:column;gap:16px;animation:fadeUp .6s ease both">
+      <span style="font-size:14px;color:#8E8E93"><span data-l="en">May — July 2026</span><span data-l="es">Mayo — julio 2026</span></span>
+    </div>
+    <h1 style="margin:0;font-size:clamp(38px,6.4vw,86px);font-weight:600;letter-spacing:-0.045em;line-height:1.04;max-width:20ch;animation:fadeUp .8s .1s ease both"><span data-l="en">Improved UX on the new DOOR redesign</span><span data-l="es">Mejoras de UX sobre el nuevo rediseño de DOOR</span></h1>
+    <p style="margin:0;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:#8E8E93;max-width:62ch;animation:fadeUp .9s .2s ease both"><span data-l="en">The rebrand gave DOOR a new look. I made it easier to use, with almost no engineering time.</span><span data-l="es">El rebranding le dio a DOOR una imagen nueva. Yo la hice más fácil de usar, casi sin tiempo de ingeniería.</span></p>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;padding-bottom:80px">
+    <div data-reveal="" style="border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.10)">
+      <img src="assets/door-ux/hero-home-dashboard.jpg" alt="Redesigned DOOR home dashboard" style="width:100%;height:auto;display:block">
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;padding-bottom:120px">
+    <div data-r="meta" data-reveal="" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Role</span><span data-l="es">Rol</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Product Designer</span><span data-l="es">Product Designer</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Worked with</span><span data-l="es">Trabajé con</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Product Owner · Engineering</span><span data-l="es">Product Owner · Ingeniería</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Tools</span><span data-l="es">Herramientas</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Figma · Confluence · Claude Code · Lyssna</span><span data-l="es">Figma · Confluence · Claude Code · Lyssna</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:28px 24px;display:flex;flex-direction:column;gap:9px">
+        <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Timeline</span><span data-l="es">Plazos</span></span>
+        <span style="font-size:17px;line-height:1.45"><span data-l="en">Q2 — Q4 2026</span><span data-l="es">Q2 — Q4 2026</span></span>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="120" style="margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93;margin-right:6px"><span data-l="en">Surfaces</span><span data-l="es">Superficies</span></span>
+      <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">Home</span><span data-l="es">Home</span></span> <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">People</span><span data-l="es">Personas</span></span> <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">User detail</span><span data-l="es">Detalle de usuario</span></span> <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">Invite flow</span><span data-l="es">Invitaciones</span></span> <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">Tables</span><span data-l="es">Tablas</span></span> <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">Sidenav</span><span data-l="es">Navegación</span></span> <span style="font-size:13px;padding:8px 15px;border-radius:9999px;border:1px solid rgba(255,255,255,0.12);color:#C7C7CC"><span data-l="en">Property picker</span><span data-l="es">Selector de propiedad</span></span>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start" data-split="">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:26px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">The problem</span><span data-l="es">El problema</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,3.8vw,42px);font-weight:500;letter-spacing:-0.035em;line-height:1.18"><span data-l="en">How can we make managers' daily work easier without building a new system?</span><span data-l="es">¿Cómo hacerles el día a día más fácil a los managers sin crear un sistema nuevo?</span></h2>
+    </div>
+    <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.68;color:#8E8E93">
+      <p style="margin:0"><span data-l="en">Property managers kept telling us the web app wasn't helping them do their job.</span><span data-l="es">Los property managers nos decían que la web no los ayudaba a hacer su trabajo.</span></p>
+      <p style="margin:0"><span data-l="en">DOOR was also in the middle of a rebrand: the look was changing, the friction wasn't.</span><span data-l="es">DOOR además estaba en pleno rebranding: cambiaba la estética, no la fricción.</span></p>
+      <p style="margin:0;color:#F5F5F7"><span data-l="en">The goal: a better product, not a new one.</span><span data-l="es">El objetivo: un producto mejor, no uno nuevo.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Where we started</span><span data-l="es">Punto de partida</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">2024 — 2025</span><span data-l="es">2024 — 2025</span></span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">Two looks, the same friction.</span><span data-l="es">Dos estéticas, la misma fricción.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">The 2025 rebrand refreshed the UI, but the flows stayed the same: long forms, bare tables and a home that didn't show what needed attention.</span><span data-l="es">El rebranding de 2025 renovó la UI, pero los flujos siguieron iguales: formularios largos, tablas pobres y una home que no mostraba qué necesitaba atención.</span></p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span data-reveal="" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Mid 2024</span><span data-l="es">Mediados de 2024</span></span>
+      <div data-r="three" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/old-2024-home.jpg" aria-label="Enlarge: DOOR web home, 2024" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/old-2024-home.jpg" alt="DOOR web home, 2024" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/old-2024-people.jpg" aria-label="Enlarge: DOOR web people list, 2024" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/old-2024-people.jpg" alt="DOOR web people list, 2024" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+      </div>
+      <div data-reveal="" data-reveal-delay="200" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/old-2024-profile.jpg" aria-label="Enlarge: DOOR web person profile, 2024" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/old-2024-profile.jpg" alt="DOOR web person profile, 2024" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+      </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <span data-reveal="" style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Late 2025 — after the rebrand</span><span data-l="es">Fines de 2025 — después del rebranding</span></span>
+      <div data-r="three" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/rebrand-2025-home.jpg" aria-label="Enlarge: DOOR web home after the rebrand, 2025" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/rebrand-2025-home.jpg" alt="DOOR web home after the rebrand, 2025" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/rebrand-2025-people.jpg" aria-label="Enlarge: DOOR web people list after the rebrand, 2025" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/rebrand-2025-people.jpg" alt="DOOR web people list after the rebrand, 2025" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+      </div>
+      <div data-reveal="" data-reveal-delay="200" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/rebrand-2025-detail.jpg" aria-label="Enlarge: DOOR web vendor detail after the rebrand, 2025" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/rebrand-2025-detail.jpg" alt="DOOR web vendor detail after the rebrand, 2025" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">The constraint</span><span data-l="es">La restricción</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">May 2026</span><span data-l="es">Mayo 2026</span></span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">Almost no engineering scope.</span><span data-l="es">Casi sin scope de ingeniería.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">We had just shipped a big UI change, so there was no room for another. I wrote a four-phase roadmap and built the small changes myself with Claude Code.</span><span data-l="es">Acabábamos de lanzar un cambio grande de UI y no había lugar para otro. Armé un roadmap en cuatro fases e implementé yo misma los cambios chicos con Claude Code.</span></p>
+    </div>
+    <div data-r="phases" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px">
+      <div data-reveal="" data-reveal-delay="0" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 1 · Q2</span><span data-l="es">Fase 1 · Q2</span></span>
+        <h3 style="margin:0;font-size:22px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Foundations</span><span data-l="es">Bases</span></h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Design</span><span data-l="es">Diseño</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Tables and card layouts</span><span data-l="es">Tablas y layouts de tarjetas</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Build</span><span data-l="es">Implementación</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Sidenav and property picker</span><span data-l="es">Navegación y selector de propiedad</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Test</span><span data-l="es">Testeo</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Home and People</span><span data-l="es">Home y Personas</span></span>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="" data-reveal-delay="90" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 2 · Q2</span><span data-l="es">Fase 2 · Q2</span></span>
+        <h3 style="margin:0;font-size:22px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Access and controls</span><span data-l="es">Accesos y controles</span></h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Design</span><span data-l="es">Diseño</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Access, Controls and Settings</span><span data-l="es">Accesos, Controles y Settings</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Build</span><span data-l="es">Implementación</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Side sheets, People and Home</span><span data-l="es">Side sheets, Personas y Home</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Test</span><span data-l="es">Testeo</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Controls, keys and Settings</span><span data-l="es">Controles, llaves y Settings</span></span>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="" data-reveal-delay="180" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 3 · Q3</span><span data-l="es">Fase 3 · Q3</span></span>
+        <h3 style="margin:0;font-size:22px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Dashboards and roles</span><span data-l="es">Dashboards y roles</span></h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Design</span><span data-l="es">Diseño</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Device health, Home dashboard and roles</span><span data-l="es">Salud de dispositivos, dashboard de Home y roles</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Build</span><span data-l="es">Implementación</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Controls, access and Settings</span><span data-l="es">Controles, accesos y Settings</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Test</span><span data-l="es">Testeo</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Roles, invites and user detail</span><span data-l="es">Roles, invitaciones y detalle de usuario</span></span>
+          </div>
+        </div>
+      </div>
+      <div data-reveal="" data-reveal-delay="270" style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Phase 4 · Q4</span><span data-l="es">Fase 4 · Q4</span></span>
+        <h3 style="margin:0;font-size:22px;font-weight:500;letter-spacing:-0.03em"><span data-l="en">Work orders</span><span data-l="es">Work orders</span></h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Design</span><span data-l="es">Diseño</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Work orders and data review</span><span data-l="es">Work orders y revisión de datos</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Build</span><span data-l="es">Implementación</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Work orders</span><span data-l="es">Work orders</span></span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08)">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Test</span><span data-l="es">Testeo</span></span>
+            <span style="font-size:15px;line-height:1.55;color:#C7C7CC"><span data-l="en">Remaining Access sections</span><span data-l="es">Secciones de Accesos restantes</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Audit, then design</span><span data-l="es">Auditar y diseñar</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">May 2026</span><span data-l="es">Mayo 2026</span></span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">Audit first, then design.</span><span data-l="es">Primero auditar, después diseñar.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">I reviewed every section and flagged each opportunity on the screens. Then I shared a first set of designs in-house to align the team.</span><span data-l="es">Revisé cada sección y marqué cada oportunidad sobre las pantallas. Después presenté un primer set de diseños para alinear al equipo.</span></p>
+    </div>
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/audit-board.jpg" aria-label="Enlarge: Audit board with annotated screens" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/audit-board.jpg" alt="Audit board with annotated screens" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Audit of People, User detail and Invite flow</span><span data-l="es">Auditoría de Personas, Detalle de usuario e Invitaciones</span></span>
+      </div>
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:14px">
+      <div data-compare="" style="position:relative;height:min(52vw,640px);border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.10);background:#111114;user-select:none;touch-action:pan-y">
+        <img src="assets/door-ux/compare-after.jpg" alt="Person detail redesign proposal, 2026" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block">
+        <div data-compare-clip="" style="position:absolute;inset:0;width:50%;overflow:hidden;border-right:1px solid rgba(255,255,255,0.7)">
+          <img src="assets/door-ux/compare-before.jpg" alt="Person profile, 2024" style="position:absolute;top:0;left:0;height:100%;object-fit:cover;object-position:left top;display:block">
+        </div>
+        <span style="position:absolute;top:16px;left:18px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 13px;border-radius:9999px;background:rgba(11,11,12,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#F5F5F7;pointer-events:none"><span data-l="en">Before</span><span data-l="es">Antes</span></span>
+        <span style="position:absolute;top:16px;right:18px;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:7px 13px;border-radius:9999px;background:rgba(11,11,12,0.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--accent);pointer-events:none"><span data-l="en">After</span><span data-l="es">Después</span></span>
+        <div data-compare-handle="" style="position:absolute;top:0;bottom:0;left:50%;width:44px;margin-left:-22px;display:flex;align-items:center;justify-content:center;cursor:ew-resize">
+          <span style="width:44px;height:44px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;display:flex;align-items:center;justify-content:center;gap:3px;font-size:13px;box-shadow:0 8px 26px rgba(0,0,0,0.45)">◄ ►</span>
+        </div>
+      </div>
+      <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Person detail — drag to compare.</span><span data-l="es">Detalle de persona — arrastrá para comparar.</span></span>
+    </div>
+    <div data-r="gal2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/design-people-list.jpg" aria-label="Enlarge: People list redesign" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/design-people-list.jpg" alt="People list redesign" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">People</span><span data-l="es">Personas</span></span>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/design-table-template.jpg" aria-label="Enlarge: Table page template" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/design-table-template.jpg" alt="Table page template" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Table page template</span><span data-l="es">Template de página con tabla</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Guidelines</span><span data-l="es">Guías</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">May — June 2026</span><span data-l="es">Mayo — junio 2026</span></span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">Rules, written down.</span><span data-l="es">Reglas, por escrito.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">I tested edge cases and documented templates, layouts, tables and dashboard specs in Figma and Confluence.</span><span data-l="es">Probé edge cases y documenté templates, layouts, tablas y specs del dashboard en Figma y Confluence.</span></p>
+    </div>
+    <div data-r="gal2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/guidelines-layout.jpg" aria-label="Enlarge: Page template and layout guidelines" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/guidelines-layout.jpg" alt="Page template and layout guidelines" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Page templates and layout</span><span data-l="es">Templates de página y layout</span></span>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/guidelines-table.jpg" aria-label="Enlarge: Table component guidelines" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/guidelines-table.jpg" alt="Table component guidelines" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Tables</span><span data-l="es">Tablas</span></span>
+      </div>
+    </div>
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/guidelines-home-specs.jpg" aria-label="Enlarge: Home dashboard specs" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/guidelines-home-specs.jpg" alt="Home dashboard specs" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Home dashboard specs</span><span data-l="es">Specs del dashboard de Home</span></span>
+      </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Live prototype</span><span data-l="es">Prototipo en vivo</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">July 2026</span><span data-l="es">Julio 2026</span></span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">A real, working prototype.</span><span data-l="es">Un prototipo real y funcional.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">I built it with Claude, presented it to the PO and tested it twice: internally and live in Lyssna.</span><span data-l="es">Lo construí con Claude, lo presenté al PO y lo testeamos dos veces: internamente y en vivo en Lyssna.</span></p>
+    </div>
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">For confidentiality reasons, I can't share the link to the live prototype here.</span><span data-l="es">Por motivos de confidencialidad, no puedo compartir acá el link al prototipo en vivo.</span></span>
+    </div>
+    <div data-r="three" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/proto-people.jpg" aria-label="Enlarge: Prototype — People list" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/proto-people.jpg" alt="Prototype — People list" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">People</span><span data-l="es">Personas</span></span>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/proto-detail.jpg" aria-label="Enlarge: Prototype — person detail" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/proto-detail.jpg" alt="Prototype — person detail" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Person detail</span><span data-l="es">Detalle de persona</span></span>
+      </div>
+      <div data-reveal="" data-reveal-delay="200" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/proto-home.jpg" aria-label="Enlarge: Prototype — Home dashboard" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/proto-home.jpg" alt="Prototype — Home dashboard" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Home</span><span data-l="es">Home</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:40px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <span style="font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)"><span data-l="en">Front-end</span><span data-l="es">Front-end</span></span>
+        <span style="font-size:12px;padding:5px 11px;border-radius:9999px;background:rgba(255,255,255,0.08);color:#C7C7CC"><span data-l="en">July 2026</span><span data-l="es">Julio 2026</span></span>
+      </div>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">Shipped without engineering.</span><span data-l="es">Lanzado sin ingeniería.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">I built the low-effort changes myself. Home, sidenav and property picker are live; People is in testing.</span><span data-l="es">Implementé yo misma los cambios de bajo esfuerzo. Home, navegación y selector de propiedad ya están en producción; Personas está en testeo.</span></p>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,3.5fr) minmax(0,1fr);gap:20px;align-items:start" data-r="gal2">
+      <div data-reveal="" data-reveal-delay="0" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/live-home.jpg" aria-label="Enlarge: Live product — redesigned Home" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/live-home.jpg" alt="Live product — redesigned Home" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Home — live</span><span data-l="es">Home — en producción</span></span>
+      </div>
+      <div data-reveal="" data-reveal-delay="100" style="display:flex;flex-direction:column;gap:12px;min-width:0">
+        <button type="button" data-shot="assets/door-ux/live-property-picker.jpg" aria-label="Enlarge: Live product — property picker" style="padding:0;border:1px solid rgba(255,255,255,0.10);border-radius:20px;overflow:hidden;background:#111114;cursor:inherit;display:block;width:100%;transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s ease" style-hover="transform:translateY(-4px);border-color:rgba(255,255,255,0.28)">
+          <img src="assets/door-ux/live-property-picker.jpg" alt="Live product — property picker" loading="lazy" style="width:100%;height:auto;display:block">
+        </button>
+        <span style="font-size:14px;line-height:1.5;color:#8E8E93"><span data-l="en">Property picker</span><span data-l="es">Selector de propiedad</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 130px;display:flex;flex-direction:column;gap:30px">
+    <div data-reveal="" style="display:flex;flex-direction:column;gap:16px;border-top:1px solid rgba(255,255,255,0.10);padding-top:36px">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">Outcome</span><span data-l="es">Resultado</span></span>
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em;line-height:1.1;max-width:22ch"><span data-l="en">Positive results in both tests.</span><span data-l="es">Resultados positivos en ambos tests.</span></h2>
+      <p style="margin:0;font-size:18px;line-height:1.68;color:#8E8E93;max-width:70ch"><span data-l="en">Only small tweaks came up, and the next iteration is already underway.</span><span data-l="es">Solo surgieron ajustes chicos, y la próxima iteración ya está en marcha.</span></p>
+    </div>
+    <div data-r="out" data-reveal="" data-reveal-delay="90" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.10);border-radius:24px;overflow:hidden">
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">2 tests</span><span data-l="es">2 tests</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">Internal and live in Lyssna</span><span data-l="es">Interno y en vivo en Lyssna</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">3 releases</span><span data-l="es">3 lanzamientos</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">Home, sidenav and property picker</span><span data-l="es">Home, navegación y selector de propiedad</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">4 phases</span><span data-l="es">4 fases</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">Roadmap through Q4</span><span data-l="es">Roadmap hasta Q4</span></span>
+      </div>
+      <div style="background-color:rgba(255,255,255,0.035);background-image:var(--grain);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:30px 26px;display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-0.045em"><span data-l="en">1 system</span><span data-l="es">1 sistema</span></span>
+        <span style="font-size:15px;line-height:1.5;color:#8E8E93"><span data-l="en">Shared templates and guidelines</span><span data-l="es">Templates y guías compartidas</span></span>
+      </div>
+    </div>
+    <div data-reveal="" data-reveal-delay="160" style="border:1px solid rgba(255,255,255,0.10);border-radius:24px;padding:34px;display:flex;flex-direction:column;gap:12px;max-width:80ch">
+      <span style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#8E8E93"><span data-l="en">What I learned</span><span data-l="es">Qué aprendí</span></span>
+      <p style="margin:0;font-size:18px;line-height:1.65;color:#C7C7CC"><span data-l="en">No engineering scope doesn't mean no UX progress. Small, testable phases kept the product improving.</span><span data-l="es">Sin scope de ingeniería igual se puede avanzar en UX. Fases chicas y testeables hicieron que el producto siguiera mejorando.</span></p>
+    </div>
+  </div>
+
+  <div data-r="pad" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:0 40px 90px;display:flex;flex-direction:column;gap:26px">
+    <div data-reveal="" style="border-top:1px solid rgba(255,255,255,0.10);padding-top:44px;display:flex;flex-direction:column;gap:22px">
+      <h2 style="margin:0;font-size:clamp(28px,4.4vw,50px);font-weight:600;letter-spacing:-0.04em"><span data-l="en">Shall we work together?</span><span data-l="es">¿Trabajamos juntos?</span></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="mailto:florbluis@gmail.com" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background:#F5F5F7;color:#0B0B0C;transition:transform .3s cubic-bezier(.2,.8,.2,1)" style-hover="color:#0B0B0C;transform:translateY(-2px)">florbluis@gmail.com</a>
+        <a href="https://linkedin.com/in/florencialuis" style="font-size:15px;font-weight:500;padding:14px 28px;border-radius:9999px;background-color:rgba(255,255,255,0.06);background-image:var(--grain);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#F5F5F7;transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .25s ease" style-hover="color:#F5F5F7;border-color:rgba(255,255,255,0.34);transform:translateY(-2px)">LinkedIn</a>
+      </div>
+      <span style="font-size:14px;color:#8E8E93">+54 9 11 6015-7008 · Buenos Aires, Argentina</span>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.wireCompare();
+    this.wireCarousel();
+    this.applyLang(localStorage.getItem('flor-lang') || 'en');
+    document.documentElement.style.background = '#0B0B0C';
+    document.body.style.background = '#0B0B0C';
+    const items = document.querySelectorAll('[data-reveal]');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1)';
+    });
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.getAttribute('data-reveal-delay') || '0', 10);
+        e.target.style.transitionDelay = d + 'ms';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    items.forEach(el => io.observe(el));
+    this._sweep = () => {
+      items.forEach(el => {
+        if (el.style.opacity === '1') return;
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        }
+      });
+    };
+    window.addEventListener('scroll', this._sweep, { passive: true });
+    window.addEventListener('resize', this._sweep, { passive: true });
+  }
+
+  wireCarousel() {
+    const modal = document.querySelector('[data-modal]');
+    const img = modal && modal.querySelector('[data-modal-img]');
+    if (!modal) return;
+    const open = src => { img.src = src; modal.style.display = 'flex'; };
+    const close = () => { modal.style.display = 'none'; img.src = ''; };
+    document.querySelectorAll('[data-shot]').forEach(btn => {
+      btn.addEventListener('click', () => open(btn.getAttribute('data-shot')));
+    });
+    modal.addEventListener('click', e => { if (e.target !== img) close(); });
+    this._esc = e => { if (e.key === 'Escape') close(); };
+    window.addEventListener('keydown', this._esc);
+  }
+
+  wireCompare() {
+    const box = document.querySelector('[data-compare]');
+    if (!box) return;
+    const clip = box.querySelector('[data-compare-clip]');
+    const handle = box.querySelector('[data-compare-handle]');
+    const beforeImg = clip.querySelector('img');
+    const fit = () => { beforeImg.style.width = box.getBoundingClientRect().width + 'px'; };
+    const set = pct => {
+      const p = Math.max(2, Math.min(98, pct));
+      clip.style.width = p + '%';
+      handle.style.left = p + '%';
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    const from = e => {
+      const r = box.getBoundingClientRect();
+      const cx = e.touches ? e.touches[0].clientX : e.clientX;
+      set(((cx - r.left) / r.width) * 100);
+    };
+    let dragging = false;
+    const down = e => { dragging = true; from(e); };
+    const move = e => { if (dragging) { from(e); if (e.cancelable) e.preventDefault(); } };
+    const up = () => { dragging = false; };
+    box.addEventListener('mousedown', down);
+    box.addEventListener('touchstart', down, { passive: true });
+    window.addEventListener('mousemove', move);
+    window.addEventListener('touchmove', move, { passive: false });
+    window.addEventListener('mouseup', up);
+    window.addEventListener('touchend', up);
+    this._cmpOff = () => {
+      window.removeEventListener('resize', fit);
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('touchmove', move);
+      window.removeEventListener('mouseup', up);
+      window.removeEventListener('touchend', up);
+    };
+  }
+
+  renderVals() {
+    return {
+      setEn: () => this.applyLang('en'),
+      setEs: () => this.applyLang('es')
+    };
+  }
+
+  applyLang(lang) {
+    document.documentElement.setAttribute('data-lang-root', lang);
+    try { localStorage.setItem('flor-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-langbtn]').forEach(b => {
+      const on = b.getAttribute('data-langbtn') === lang;
+      b.style.background = on ? '#F5F5F7' : 'transparent';
+      b.style.color = on ? '#0B0B0C' : '#8E8E93';
+    });
+  }
+
+  componentWillUnmount() {
+    if (this._esc) window.removeEventListener('keydown', this._esc);
+    if (this._cmpOff) this._cmpOff();
+    window.removeEventListener('scroll', this._sweep);
+    window.removeEventListener('resize', this._sweep);
+  }
+}
+</script>
+</body>
+</html>
